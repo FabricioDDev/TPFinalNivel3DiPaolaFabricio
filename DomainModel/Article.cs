@@ -16,5 +16,10 @@ namespace DomainModel
         public string Category { get; set; }
         public string Image { get; set; }
         public Double Price { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }
