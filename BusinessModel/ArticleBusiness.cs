@@ -50,5 +50,23 @@ namespace BusinessModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+
+        public void Insert(Article article)
+        {
+            try
+            {
+                data.Query("insert into ARTICULOS values (@Code, @Name, @Description, @Bid, @Cid, @Img, @Price);");
+                data.Parameters("@Code", article.Code);
+                data.Parameters("@Name", article.Name);
+                data.Parameters("@Description", article.Description);
+                data.Parameters("@Bid", article.Brand.Id);
+                data.Parameters("@Cid", article.Category.Id);
+                data.Parameters("@Img", article.Image);
+                data.Parameters("@Price", article.Price);
+                data.Execute();
+            }
+            catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
