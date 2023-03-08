@@ -8,7 +8,7 @@ namespace DomainModel
 {
     public class Article
     {
-        //Atributes
+        //Attributes
         public int Code { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -17,6 +17,7 @@ namespace DomainModel
         public string Image { get; set; }
         public Double Price { get; set; }
 
+        //Override
         public override string ToString()
         {
             return this.Name;

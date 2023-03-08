@@ -8,8 +8,14 @@ namespace DomainModel
 {
     public class Brand
     {
-        //Atributes
+        //Attributes
         public int Id { get; set; }
         public string Name { get; set; }
+
+        //Override
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }
