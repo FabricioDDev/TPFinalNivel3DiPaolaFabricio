@@ -20,5 +20,62 @@ namespace DB
         {
             get { return reader; }
         }
+        //Methods
+        public void Query(string query)
+        {
+            try
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = query;
+            }catch(Exception ex) { throw ex; }
+        }
+        public void Read()
+        {
+            command.Connection = connection;
+            try
+            {
+                connection.Open();
+                reader = command.ExecuteReader();
+            }
+            catch (Exception ex) { throw ex; }
+            
+        }
+        public void Parameters(string parameter, object value)
+        {
+            try
+            {
+                command.Parameters.AddWithValue(parameter, value);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public void Execute()
+        {
+            command.Connection = connection;
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public void SP(string SP)
+        {
+            try
+            {
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = SP;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public void Close()
+        {
+            try
+            {
+                if(reader != null)
+                    reader.Close();
+                connection.Close();
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }
