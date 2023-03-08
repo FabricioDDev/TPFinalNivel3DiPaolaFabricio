@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    internal class Client
+    internal interface Helper
     {
+        
     }
 }
