@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    internal class User
+    public class User : Person
     {
+        // Email, Pass, UrlIMagen, Admin
+        
     }
 }

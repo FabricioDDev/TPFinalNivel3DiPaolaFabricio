@@ -6,12 +6,28 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    public class Person
+    public abstract class Person
     {
         //Attributes
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        
+        private int Id;
+        private string Name;
+        private string LastName;
+
+        //properties
+        public int idProperty
+        {
+            get { return this.Id; }
+            set { this.Id = value; }
+        }
+        public string nameProperty
+        {
+            get { return this.Name; }
+            set { this.Name = value; }
+        }
+        public string lastNameProperty
+        {
+            get { return this.LastName; }
+            set { this.LastName = value; }
+        }
     }
 }
