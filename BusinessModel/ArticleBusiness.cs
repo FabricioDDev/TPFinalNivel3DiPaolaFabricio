@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DB;
 
 namespace BusinessModel
 {
-    internal class ArticleBusiness
+    public class ArticleBusiness
     {
+        //Builder
+        public ArticleBusiness()
+        {
+            data = new DataAccess();
+        }
+        //attribute
+        private DataAccess data;
     }
 }
