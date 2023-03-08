@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    internal class Brand
+    public class Brand
     {
+        //Atributes
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
