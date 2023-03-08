@@ -10,8 +10,8 @@ namespace DomainModel
     {
         //Attributes
         private int Id;
-        private string Name;
-        private string LastName;
+        private string Name;//null
+        private string LastName;//null
 
         //properties
         public int idProperty

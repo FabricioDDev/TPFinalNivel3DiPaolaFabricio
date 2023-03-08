@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
     <Compile Include="Article.cs" />
     <Compile Include="Brand.cs" />
     <Compile Include="Category.cs" />
