@@ -7,7 +7,8 @@
     <asp:TextBox ID="TxtEmail" runat="server"></asp:TextBox>
 
     <asp:Label ID="LblPass" runat="server" Text="Your Pass*"></asp:Label>
-    <asp:TextBox ID="TxtPass" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TxtPass" TextMode="Password" runat="server"></asp:TextBox>
+    <asp:Button ID="BtnViewPass" OnClick="BtnViewPass_Click" runat="server" Text="ViewPass" />
 
     <asp:Label ID="LblName" runat="server" Text="Your Name"></asp:Label>
     <asp:TextBox ID="TxtName" runat="server"></asp:TextBox>

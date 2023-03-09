@@ -26,5 +26,13 @@ namespace EcommerceWebApp
             user.lastNameProperty= TxtLastName.Text != "" ? TxtLastName.Text :null;
             userBusiness.Insert(user);
         }
+
+        protected void BtnViewPass_Click(object sender, EventArgs e)
+        {
+            if (TxtPass.TextMode == TextBoxMode.Password)
+                TxtPass.TextMode = TextBoxMode.SingleLine;
+            else
+                TxtPass.TextMode = TextBoxMode.Password;
+        }
     }
 }

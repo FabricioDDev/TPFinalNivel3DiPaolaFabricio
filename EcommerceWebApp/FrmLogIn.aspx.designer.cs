@@ -11,7 +11,7 @@ namespace EcommerceWebApp
 {
 
 
-    public partial class FrmSignUp
+    public partial class FrmLogIn
     {
 
         /// <summary>
@@ -51,51 +51,6 @@ namespace EcommerceWebApp
         protected global::System.Web.UI.WebControls.TextBox TxtPass;
 
         /// <summary>
-        /// Control BtnViewPass.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnViewPass;
-
-        /// <summary>
-        /// Control LblName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblName;
-
-        /// <summary>
-        /// Control TxtName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtName;
-
-        /// <summary>
-        /// Control LblLastName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblLastName;
-
-        /// <summary>
-        /// Control TxtLastName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLastName;
-
-        /// <summary>
         /// Control BtnGo.
         /// </summary>
         /// <remarks>
@@ -105,12 +60,21 @@ namespace EcommerceWebApp
         protected global::System.Web.UI.WebControls.Button BtnGo;
 
         /// <summary>
-        /// Control LkbtnLogIn.
+        /// Control LkbtnRecoveryPass.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LkbtnLogIn;
+        protected global::System.Web.UI.WebControls.LinkButton LkbtnRecoveryPass;
+
+        /// <summary>
+        /// Control LktbtnSignIn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LktbtnSignIn;
     }
 }
