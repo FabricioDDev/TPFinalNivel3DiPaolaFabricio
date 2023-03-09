@@ -20,7 +20,6 @@ namespace BusinessModel
         private DataAccess data;
 
         //Methods
-        //leer, insertar, modificar, borrar
         public List<Article> Listing()
         {
             List<Article> List = new List<Article>();
