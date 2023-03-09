@@ -13,6 +13,11 @@ namespace DomainModel
     }
     public class User : Person
     {
+        //builder
+        public User(bool usertype)
+        {
+            this.userType = usertype ? UserType.Admin : UserType.Client;
+        }
         // Attributes
         private string Email;
         private string Password;
