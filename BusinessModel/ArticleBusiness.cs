@@ -68,5 +68,24 @@ namespace BusinessModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+
+        public void Update(Article article)
+        {
+            try
+            {
+                data.Query("update ARTICULOS set Codigo = @Code, Nombre= @Name, Descripcion= @Description, IdMarca= @IdBrand, IdCategoria= @IdCategory, ImagenUrl= @Img, Precio= @Price where Id = @Id");
+                data.Parameters("@Code", article.Code);
+                data.Parameters("@Name", article.Name);
+                data.Parameters("@Description", article.Description);
+                data.Parameters("@IdBrand", article.Brand.Id);
+                data.Parameters("@IdCategory", article.Category.Id);
+                data.Parameters("@Img", article.Image);
+                data.Parameters("@Price", article.Price);
+                data.Parameters("@Id", article.Id);
+                data.Execute();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
