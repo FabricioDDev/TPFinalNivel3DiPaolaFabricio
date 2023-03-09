@@ -31,7 +31,7 @@ namespace BusinessModel
                 {
                     Article aux = new Article();
                     aux.Id = (int)data.readerProp["IdArticle"];
-                    aux.Code = (int)data.readerProp["Codigo"];
+                    aux.Code = (string)data.readerProp["Codigo"];
                     aux.Name = (string)data.readerProp["Nombre"];
                     aux.Description = (string)data.readerProp["Adescription"];
                     aux.Image = (string)data.readerProp["ImagenUrl"];

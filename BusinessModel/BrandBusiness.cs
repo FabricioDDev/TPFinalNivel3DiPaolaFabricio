@@ -34,7 +34,7 @@ namespace BusinessModel
             }
             catch (Exception ex){ throw ex; }
             finally { }
-        };
+        }
 
     }
 }

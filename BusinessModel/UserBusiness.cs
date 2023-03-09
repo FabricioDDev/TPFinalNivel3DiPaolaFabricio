@@ -47,9 +47,9 @@ namespace BusinessModel
                 data.Query("insert into USERS values (@email, @pass, @nombre, @apellido, @urlImagenPerfil, @admin)");
                 data.Parameters("@email", user.EmailProperty);
                 data.Parameters("@pass", user.PassProperty);
-                data.Parameters("@nombre", user.nameProperty);
-                data.Parameters("@apellido", user.lastNameProperty);
-                data.Parameters("@urlImagenPerfil", user.UrlProfileImage);
+                data.Parameters("@nombre", (object)user.nameProperty?? DBNull.Value);
+                data.Parameters("@apellido", (object)user.lastNameProperty ?? DBNull.Value);
+                data.Parameters("@urlImagenPerfil", (object)user.UrlProfileImage ?? DBNull.Value);
                 data.Parameters("@admin", user.userType);
                 data.Execute();
             }

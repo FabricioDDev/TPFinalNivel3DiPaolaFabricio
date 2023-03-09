@@ -15,8 +15,7 @@
     <asp:Label ID="LblLastName" runat="server" Text="Your Last Name"></asp:Label>
     <asp:TextBox ID="TxtLastName" runat="server"></asp:TextBox>
 
-    <asp:Button ID="BtnGo" runat="server" Text="Go" />
+    <asp:Button ID="BtnGo" OnClick="BtnGo_Click" runat="server" Text="Go" />
     
-
     <asp:LinkButton ID="LkbtnLogIn" runat="server">Do you already have an account?</asp:LinkButton>
 </asp:Content>
