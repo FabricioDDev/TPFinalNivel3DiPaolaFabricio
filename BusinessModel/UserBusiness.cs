@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainModel;
+using DB;
 
 namespace BusinessModel
 {
-    internal class UserBusiness
+    public class UserBusiness
     {
+        //Builder
+        public UserBusiness() { this.data = new DataAccess(); }
+        //Attributes
+        private DataAccess data;
     }
 }

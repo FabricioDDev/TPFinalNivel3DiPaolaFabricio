@@ -13,7 +13,7 @@ namespace BusinessModel
         //Builder
         public CategoryBusiness()
         {
-            data = new DataAccess();
+            this.data = new DataAccess();
         }
         //Attributes
         private DataAccess data;
