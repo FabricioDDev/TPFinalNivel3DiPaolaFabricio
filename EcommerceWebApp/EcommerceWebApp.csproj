@@ -67,9 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FrmSignUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmSignUp.aspx.cs">
+      <DependentUpon>FrmSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmSignUp.aspx.designer.cs">
+      <DependentUpon>FrmSignUp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogIn_SignUp.Master.cs">
       <DependentUpon>LogIn_SignUp.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
