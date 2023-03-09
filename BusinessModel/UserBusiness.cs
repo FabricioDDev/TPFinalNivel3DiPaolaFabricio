@@ -40,5 +40,21 @@ namespace BusinessModel
             }
             finally { data.Close(); }
         }
+        public void Insert(User user)
+        {
+            try
+            {
+                data.Query("insert into USERS values (@email, @pass, @nombre, @apellido, @urlImagenPerfil, @admin)");
+                data.Parameters("@email", user.EmailProperty);
+                data.Parameters("@pass", user.PassProperty);
+                data.Parameters("@nombre", user.nameProperty);
+                data.Parameters("@apellido", user.lastNameProperty);
+                data.Parameters("@urlImagenPerfil", user.UrlProfileImage);
+                data.Parameters("@admin", user.userType);
+                data.Execute();
+            }
+            catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
