@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    internal interface Helper
+    public static class Helper
     {
-        
+        public static Func<string, int, int, bool> validatingTxtLong = (texto, min, max) => texto.Length >= min && texto.Length <= max;
     }
 }
