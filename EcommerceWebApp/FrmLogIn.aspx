@@ -11,5 +11,5 @@
     <asp:Button ID="BtnGo" OnClick="BtnGo_Click" runat="server" Text="Go" />
     <asp:LinkButton ID="LkbtnRecoveryPass" runat="server">Recovery Password</asp:LinkButton>
 
-    <asp:LinkButton ID="LktbtnSignIn" runat="server" Text="SignIn"></asp:LinkButton>
+    <asp:LinkButton ID="LktbtnSignUp" OnClick="LktbtnSignUp_Click" runat="server" Text="SignUp"></asp:LinkButton>
 </asp:Content>

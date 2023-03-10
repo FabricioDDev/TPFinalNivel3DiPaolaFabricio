@@ -23,5 +23,10 @@ namespace EcommerceWebApp
             if(user != null )
                 Session.Add("activeUser", user);
          }
+
+        protected void LktbtnSignUp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmSignUp.aspx", false);
+        }
     }
 }
