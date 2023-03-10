@@ -15,11 +15,13 @@ namespace BusinessModel
         //Attributes
         private DataAccess data;
         //Methods
-        public User LogIn()
+        public User LogIn(string pass, string email)
         {
             try
             {
                 data.Query("select Id, email, pass, nombre, apellido, urlImagenPerfil, admin from USERS where email = @email and pass = @pass");
+                data.Parameters("@email", email);
+                data.Parameters("@pass", pass);
                 data.Read();
                 while (data.readerProp.Read())
                 {
@@ -27,9 +29,9 @@ namespace BusinessModel
                     aux.idProperty = (int)data.readerProp["Id"];
                     aux.EmailProperty = (string)data.readerProp["email"];
                     aux.PassProperty = (string)data.readerProp["pass"];
-                    aux.nameProperty = (string)data.readerProp["nombre"];
-                    aux.lastNameProperty = (string)data.readerProp["apellido"];
-                    aux.UrlProfileImage = (string)data.readerProp["urlImagenPerfil"];
+                    aux.nameProperty = ((object)data.readerProp["nombre"] ?? DBNull.Value).ToString();
+                    aux.lastNameProperty = ((object)data.readerProp["apellido"] ?? DBNull.Value).ToString();
+                    aux.UrlProfileImage = ((object)data.readerProp["urlImagenPerfil"] ?? DBNull.Value).ToString();
                     return aux;
                 }
                 return null;

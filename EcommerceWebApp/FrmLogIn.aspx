@@ -8,7 +8,7 @@
     <asp:Label ID="LblPass" runat="server" Text="Pass"></asp:Label>
     <asp:TextBox ID="TxtPass" runat="server"></asp:TextBox>
 
-    <asp:Button ID="BtnGo" runat="server" Text="Go" />
+    <asp:Button ID="BtnGo" OnClick="BtnGo_Click" runat="server" Text="Go" />
     <asp:LinkButton ID="LkbtnRecoveryPass" runat="server">Recovery Password</asp:LinkButton>
 
     <asp:LinkButton ID="LktbtnSignIn" runat="server" Text="SignIn"></asp:LinkButton>
