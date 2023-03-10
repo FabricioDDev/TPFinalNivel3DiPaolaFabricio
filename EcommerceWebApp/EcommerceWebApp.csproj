@@ -67,11 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FrmError.aspx" />
     <Content Include="FrmLogIn.aspx" />
     <Content Include="FrmSignUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmError.aspx.cs">
+      <DependentUpon>FrmError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmError.aspx.designer.cs">
+      <DependentUpon>FrmError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogIn.aspx.cs">
       <DependentUpon>FrmLogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

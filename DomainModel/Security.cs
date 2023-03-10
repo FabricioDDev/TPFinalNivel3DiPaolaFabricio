@@ -13,5 +13,12 @@ namespace DomainModel
             User user = (User)userActive;
             return user != null? true: false;
         }
+        public static bool isErrorSessionActive(object session)
+        {
+            if(session != null)
+                return true;
+            else
+                return false;
+        }
     }
 }
