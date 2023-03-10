@@ -18,5 +18,5 @@
 
     <asp:Button ID="BtnGo" OnClick="BtnGo_Click" runat="server" Text="Go" />
     
-    <asp:LinkButton ID="LkbtnLogIn" runat="server">Do you already have an account?</asp:LinkButton>
+    <asp:LinkButton ID="LkbtnLogIn" OnClick="LkbtnLogIn_Click" runat="server">Do you already have an account?</asp:LinkButton>
 </asp:Content>

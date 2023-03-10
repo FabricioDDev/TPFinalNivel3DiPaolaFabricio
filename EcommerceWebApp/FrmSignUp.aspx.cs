@@ -34,5 +34,10 @@ namespace EcommerceWebApp
             else
                 TxtPass.TextMode = TextBoxMode.Password;
         }
+
+        protected void LkbtnLogIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmLogIn.aspx", false);
+        }
     }
 }
