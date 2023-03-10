@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Label ID="LblWarning" Visible="false" runat="server" Text=""></asp:Label>
     <asp:Label ID="LblEmail" runat="server" Text="Your Email:"></asp:Label>
     <asp:TextBox ID="TxtEmail" runat="server"></asp:TextBox>
 

@@ -11,8 +11,13 @@ namespace EcommerceWebApp
 {
     public partial class FrmLogIn : System.Web.UI.Page
     {
+        private List<TextBox>inputs = new List<TextBox>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Security.isErrorSessionActive(Session["Error"]))
+                Response.Redirect("FrmError.aspx", false);
+            inputs.Add(TxtEmail);
+            inputs.Add(TxtPass);
         }
 
         protected void BtnGo_Click(object sender, EventArgs e)
@@ -20,13 +25,38 @@ namespace EcommerceWebApp
             UserBusiness userBusiness = new UserBusiness();
             try
             {
-                if (string.IsNullOrEmpty(TxtEmail.Text) || string.IsNullOrEmpty(TxtPass.Text))
+                if (!validateControlls())
                     return;
                 User user = userBusiness.LogIn(TxtPass.Text, TxtEmail.Text);
                 if (user != null)
                     Session.Add("activeUser", user);
-            }catch(Exception ex) { Response.Redirect("FrmError.aspx"); }
+            }catch(Exception ex)
+            {
+                Session.Add("Error", ex.Message);
+            }
          }
+        private bool validateControlls()
+        {
+            try
+            {
+                foreach (TextBox txt in inputs)
+                {
+                    if (string.IsNullOrEmpty(txt.Text))
+                    {
+                        LblWarning.Text = "Oh, Forgot to write your Email or PassWord?";
+                        return false;
+                    }
+
+                    if (!Helper.validatingTxtLong(txt.Text, 5, 30))
+                    {
+                        LblWarning.Text = "Oh, the camp should have between 5 and 30 characters. Try again!...";
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch(Exception ex){ throw ex; }
+        }
 
         protected void LktbtnSignUp_Click(object sender, EventArgs e)
         {
