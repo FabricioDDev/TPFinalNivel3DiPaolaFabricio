@@ -19,6 +19,8 @@ namespace EcommerceWebApp
         protected void BtnGo_Click(object sender, EventArgs e)
         {
             UserBusiness userBusiness = new UserBusiness();
+            if (string.IsNullOrEmpty(TxtEmail.Text) || string.IsNullOrEmpty(TxtPass.Text))
+                return;
             User user = userBusiness.LogIn(TxtPass.Text, TxtEmail.Text);
             if(user != null )
                 Session.Add("activeUser", user);
