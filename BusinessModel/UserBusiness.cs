@@ -67,7 +67,7 @@ namespace BusinessModel
                 data.Read();
                 if (data.readerProp.Read())
                 {
-                    if ((string)data.readerProp["match"] != "0")
+                    if ((int)data.readerProp["match"] != 0)
                         return true;
                     else
                         return false;

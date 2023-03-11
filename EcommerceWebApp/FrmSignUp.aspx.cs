@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DomainModel;
 using BusinessModel;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EcommerceWebApp
 {
@@ -14,11 +15,11 @@ namespace EcommerceWebApp
         private List<TextBox> inputs = new List<TextBox>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Security.isErrorSessionActive(Session["Error"]))
+            if (Security.isErrorSessionActive(Session["Error"]))
                 Response.Redirect("FrmError");
 
-            if (!IsPostBack)
-                chargeControlls();
+            //if (!IsPostBack)
+            chargeControlls();
         }
         private void chargeControlls()
         {
@@ -51,6 +52,7 @@ namespace EcommerceWebApp
         }
         private bool validateControlls()
         {
+            UserBusiness userBusiness = new UserBusiness();
             try
             {
                 foreach (TextBox txt in inputs)
@@ -66,6 +68,12 @@ namespace EcommerceWebApp
                     {
                         LblWarning.Visible = true;
                         LblWarning.Text = "Oh, the camp should have between 5 and 30 characters. Try again!...";
+                        return false;
+                    }
+                    if ((txt.ID == "TxtEmail") && userBusiness.existUser(TxtEmail.Text))
+                    {
+                        LblWarning.Visible = true;
+                        LblWarning.Text = "There is already an account associated with that email. Try again...";
                         return false;
                     }
                 }
