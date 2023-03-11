@@ -17,6 +17,7 @@
     <asp:TextBox ID="TxtLastName" runat="server"></asp:TextBox>
 
     <asp:Button ID="BtnGo" OnClick="BtnGo_Click" runat="server" Text="Go" />
+    <asp:Label ID="LblWarning" runat="server" Text="" Visible="false"></asp:Label>
     
     <asp:LinkButton ID="LkbtnLogIn" OnClick="LkbtnLogIn_Click" runat="server">Do you already have an account?</asp:LinkButton>
 </asp:Content>

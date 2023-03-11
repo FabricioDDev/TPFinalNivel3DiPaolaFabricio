@@ -30,6 +30,11 @@ namespace EcommerceWebApp
                 User user = userBusiness.LogIn(TxtPass.Text, TxtEmail.Text);
                 if (user != null)
                     Session.Add("activeUser", user);
+                else
+                {
+                    LblWarning.Visible = true;
+                    LblWarning.Text = "Incorrect User, Try again!";
+                }
             }catch(Exception ex)
             {
                 Session.Add("Error", ex.Message);
@@ -43,12 +48,14 @@ namespace EcommerceWebApp
                 {
                     if (string.IsNullOrEmpty(txt.Text))
                     {
+                        LblWarning.Visible = true;
                         LblWarning.Text = "Oh, Forgot to write your Email or PassWord?";
                         return false;
                     }
 
                     if (!Helper.validatingTxtLong(txt.Text, 5, 30))
                     {
+                        LblWarning.Visible = true;
                         LblWarning.Text = "Oh, the camp should have between 5 and 30 characters. Try again!...";
                         return false;
                     }
