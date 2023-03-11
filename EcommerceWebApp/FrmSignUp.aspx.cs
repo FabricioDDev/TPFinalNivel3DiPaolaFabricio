@@ -73,7 +73,6 @@ namespace EcommerceWebApp
             }
             catch (Exception ex) { throw ex; }
         }
-
         protected void BtnViewPass_Click(object sender, EventArgs e)
         {
             if (TxtPass.TextMode == TextBoxMode.Password)

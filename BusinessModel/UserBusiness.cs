@@ -58,5 +58,24 @@ namespace BusinessModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+        public bool existUser(string email)
+        {
+            try
+            {
+                data.Query("select count(*) as match from USERS where email = @email");
+                data.Parameters("@email", email);
+                data.Read();
+                if (data.readerProp.Read())
+                {
+                    if ((string)data.readerProp["match"] != "0")
+                        return true;
+                    else
+                        return false;
+                }
+                return false;
+            }
+            catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
