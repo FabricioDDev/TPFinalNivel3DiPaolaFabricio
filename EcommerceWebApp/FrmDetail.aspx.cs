@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace EcommerceWebApp
 {
-    public partial class DashBoardWithCards : System.Web.UI.Page
+    public partial class FrmDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string IdArticle = Request.QueryString["id"];
         }
     }
 }

@@ -29,7 +29,10 @@ namespace EcommerceWebApp
                     return;
                 User user = userBusiness.LogIn(TxtPass.Text, TxtEmail.Text);
                 if (user != null)
+                {
                     Session.Add("activeUser", user);
+                    Response.Redirect("FrmDashBoardWithCards.aspx", false);
+                } 
                 else
                 {
                     LblWarning.Visible = true;

@@ -67,8 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DashBoardWithCards.aspx" />
-    <Content Include="DashBoardWithGrid.aspx" />
+    <Content Include="FrmDashBoardWithCards.aspx" />
+    <Content Include="FrmDashBoardWithGrid.aspx" />
+    <Content Include="FrmDetail.aspx" />
     <Content Include="FrmError.aspx" />
     <Content Include="FrmLogIn.aspx" />
     <Content Include="FrmSignUp.aspx" />
@@ -82,19 +83,26 @@
     <Compile Include="DashBoard.Master.designer.cs">
       <DependentUpon>DashBoard.Master</DependentUpon>
     </Compile>
-    <Compile Include="DashBoardWithCards.aspx.cs">
-      <DependentUpon>DashBoardWithCards.aspx</DependentUpon>
+    <Compile Include="FrmDashBoardWithCards.aspx.cs">
+      <DependentUpon>FrmDashBoardWithCards.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DashBoardWithCards.aspx.designer.cs">
-      <DependentUpon>DashBoardWithCards.aspx</DependentUpon>
+    <Compile Include="FrmDashBoardWithCards.aspx.designer.cs">
+      <DependentUpon>FrmDashBoardWithCards.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DashBoardWithGrid.aspx.cs">
-      <DependentUpon>DashBoardWithGrid.aspx</DependentUpon>
+    <Compile Include="FrmDashBoardWithGrid.aspx.cs">
+      <DependentUpon>FrmDashBoardWithGrid.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DashBoardWithGrid.aspx.designer.cs">
-      <DependentUpon>DashBoardWithGrid.aspx</DependentUpon>
+    <Compile Include="FrmDashBoardWithGrid.aspx.designer.cs">
+      <DependentUpon>FrmDashBoardWithGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetail.aspx.cs">
+      <DependentUpon>FrmDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmDetail.aspx.designer.cs">
+      <DependentUpon>FrmDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmError.aspx.cs">
       <DependentUpon>FrmError.aspx</DependentUpon>

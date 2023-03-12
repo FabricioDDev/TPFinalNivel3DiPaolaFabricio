@@ -44,6 +44,7 @@ namespace EcommerceWebApp
                 user.lastNameProperty = TxtLastName.Text != "" ? TxtLastName.Text : null;
                 userBusiness.Insert(user);
                 Session.Add("userActive", user);
+                Response.Redirect("FrmDashBoardWithCards.aspx", false);
             }
             catch (Exception ex)
             {
