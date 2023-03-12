@@ -67,12 +67,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DashBoardWithCards.aspx" />
+    <Content Include="DashBoardWithGrid.aspx" />
     <Content Include="FrmError.aspx" />
     <Content Include="FrmLogIn.aspx" />
     <Content Include="FrmSignUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashBoard.Master.cs">
+      <DependentUpon>DashBoard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Master.designer.cs">
+      <DependentUpon>DashBoard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoardWithCards.aspx.cs">
+      <DependentUpon>DashBoardWithCards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoardWithCards.aspx.designer.cs">
+      <DependentUpon>DashBoardWithCards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoardWithGrid.aspx.cs">
+      <DependentUpon>DashBoardWithGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoardWithGrid.aspx.designer.cs">
+      <DependentUpon>DashBoardWithGrid.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmError.aspx.cs">
       <DependentUpon>FrmError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogIn_SignUp.Master" />
+    <Content Include="DashBoard.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
