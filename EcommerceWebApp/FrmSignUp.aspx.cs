@@ -12,14 +12,14 @@ namespace EcommerceWebApp
 {
     public partial class FrmSignUp : System.Web.UI.Page
     {
-        private List<TextBox> inputs = new List<TextBox>();
+        private static List<TextBox> inputs = new List<TextBox>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Security.isErrorSessionActive(Session["Error"]))
                 Response.Redirect("FrmError");
 
-            //if (!IsPostBack)
-            chargeControlls();
+            if (!IsPostBack)
+                chargeControlls();
         }
         private void chargeControlls()
         {

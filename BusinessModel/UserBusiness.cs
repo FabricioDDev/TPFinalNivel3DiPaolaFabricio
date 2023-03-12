@@ -77,5 +77,21 @@ namespace BusinessModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+        public void update(User user)
+        {
+            try
+            {
+                data.Query("update USERS set email = @email, pass = @pass, nombre = @nombre, apellido = @apellido, urlImagenPerfil = @urlImagenPerfil where Id = @Id");
+                data.Parameters("@email", user.EmailProperty);
+                data.Parameters("@pass", user.PassProperty);
+                data.Parameters("@nombre", user.nameProperty);
+                data.Parameters("@apellido", user.lastNameProperty);
+                data.Parameters("@urlImagenPerfil", user.UrlProfileImage);
+                data.Parameters("@Id", user.idProperty);
+                data.Execute();
+            }
+            catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
