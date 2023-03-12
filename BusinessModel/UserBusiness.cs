@@ -93,5 +93,15 @@ namespace BusinessModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+        public void delete(int Id)
+        {
+            try
+            {
+                data.Query("delete USERS where Id = @Id");
+                data.Parameters("@Id", Id);
+                data.Execute();
+            }catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
