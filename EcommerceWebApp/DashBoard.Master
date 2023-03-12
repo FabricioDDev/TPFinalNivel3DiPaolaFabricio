@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <div>
             <!-- nav: btnLogOut titulo btnmiperfil-->
-                <asp:Button ID="BtnSignOut" runat="server" Text="SignOut" />
+                <asp:Button ID="BtnSignOut" OnClick="BtnSignOut_Click" runat="server" Text="SignOut" />
                 <h1>DashBoard</h1>
                 <a href="#">
                     <asp:Image ID="ImgProfile" runat="server" />

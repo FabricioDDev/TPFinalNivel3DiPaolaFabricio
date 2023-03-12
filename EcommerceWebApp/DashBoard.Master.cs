@@ -13,5 +13,11 @@ namespace EcommerceWebApp
         {
 
         }
+
+        protected void BtnSignOut_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("FrmLogIn.aspx", false);
+        }
     }
 }
