@@ -21,6 +21,10 @@
                     <label>Mi Perfil</label>
                 </a>
 
+            <!-- Filtro Basico -->
+            <label>Buscar</label>
+            <asp:TextBox ID="TxtSearch" runat="server"></asp:TextBox>
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             <!--main: catalogo v1 filtros tarjetas-->
 

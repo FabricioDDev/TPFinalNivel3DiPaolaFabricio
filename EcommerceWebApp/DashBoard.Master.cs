@@ -15,6 +15,7 @@ namespace EcommerceWebApp
         {
             ArticleBusiness articleBusiness = new ArticleBusiness();
             ArticleList = articleBusiness.Listing();
+
         }
         //Hacer atributo lista desde la master, y consumirla desde las paginas hijas.
         public static List<Article> ArticleList;
