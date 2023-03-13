@@ -18,8 +18,8 @@ namespace EcommerceWebApp
         }
         private void chargeCards()
         {
-            ArticleBusiness articleBusiness = new ArticleBusiness();
-            RptrCards.DataSource = articleBusiness.Listing();
+            // DashBoard. DashBoardMaster = new DashBoard();
+            RptrCards.DataSource = DashBoard.ArticleList;
             RptrCards.DataBind();
         }
 
