@@ -8,7 +8,7 @@
             <asp:TextBox ID="TxtSearch" AutoPostBack="true" OnTextChanged="TxtSearch_TextChanged" runat="server"></asp:TextBox>
    
     <!--Advanced Filter -->
-        <asp:CheckBox ID="CkbxAdvancedFilter" runat="server" />
+        <asp:CheckBox ID="CkbxAdvancedFilter" AutoPostBack="true" runat="server" />
         <!-- Camp -->
             <asp:Label ID="LblCamp" runat="server" Text="Camp"></asp:Label>
             <asp:DropDownList ID="DdlCamp" runat="server"></asp:DropDownList>

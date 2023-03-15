@@ -21,20 +21,37 @@ namespace EcommerceWebApp
         { 
             if(!IsPostBack)
                 chargeCards(articleBusiness.Listing());
+            stateCkbxAdvancedFilter();
+        }
+        private void stateCkbxAdvancedFilter()
+        {
+            if (CkbxAdvancedFilter.Checked == true)
+            {
+                LblCamp.Visible = true;
+                LblCriterion.Visible = true;
+                DdlCamp.Visible = true;
+                DdlCriterion.Visible = true;
+                BtnApplyFilter.Visible = true;
+            }
+            else if (CkbxAdvancedFilter.Checked == false)
+            {
+                LblCamp.Visible = false;
+                LblCriterion.Visible = false;
+                DdlCamp.Visible = false;
+                DdlCriterion.Visible = false;
+                BtnApplyFilter.Visible = false;
+            }
         }
         private void chargeCards(List<Article>List)
         {
             RptrCards.DataSource = List;
             RptrCards.DataBind();
         }
-        
-
         protected void BtnDetail_Click(object sender, EventArgs e)
         {
             string Id = ((Button)sender).CommandArgument;
             Response.Redirect("FrmDetail.aspx?id=" + Id);
         }
-
         protected void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             List<Article>list = articleBusiness.Listing().FindAll(
@@ -42,5 +59,6 @@ namespace EcommerceWebApp
                 x.Name.ToUpper().Contains(TxtSearch.Text.ToUpper()));
             chargeCards(list);
         }
+
     }
 }
