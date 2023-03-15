@@ -11,11 +11,11 @@
         <asp:CheckBox ID="CkbxAdvancedFilter" AutoPostBack="true" runat="server" />
         <!-- Camp -->
             <asp:Label ID="LblCamp" runat="server" Text="Camp"></asp:Label>
-            <asp:DropDownList ID="DdlCamp" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DdlCamp" OnSelectedIndexChanged="DdlCamp_SelectedIndexChanged"  AutoPostBack="true" runat="server"></asp:DropDownList>
 
          <!-- criterio -->
             <asp:Label ID="LblCriterion" runat="server" Text="Criterion"></asp:Label>
-            <asp:DropDownList ID="DdlCriterion" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DdlCriterion"  runat="server"></asp:DropDownList>
 
             <asp:Button ID="BtnApplyFilter" runat="server" Text="Apply" />
 

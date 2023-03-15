@@ -18,11 +18,15 @@ namespace EcommerceWebApp
         }
         public ArticleBusiness articleBusiness;
         protected void Page_Load(object sender, EventArgs e)
-        { 
-            if(!IsPostBack)
+        {
+            if (!IsPostBack)
+            {
                 chargeCards(articleBusiness.Listing());
+                chargeDdlCamp();
+            }
+                
             stateCkbxAdvancedFilter();
-            chargeDdlCamp();
+            
         }
         private void stateCkbxAdvancedFilter()
         {
@@ -46,10 +50,11 @@ namespace EcommerceWebApp
         private void chargeDdlCamp()
         {
             DdlCamp.Items.Clear();
-            DdlCamp.Items.Add("Marcas");
-            DdlCamp.Items.Add("Precio");
-            DdlCamp.Items.Add("Categorias");
+            DdlCamp.Items.Add("Brand");
+            DdlCamp.Items.Add("Price");
+            DdlCamp.Items.Add("Category");
         }
+        
         private void chargeCards(List<Article>List)
         {
             RptrCards.DataSource = List;
@@ -68,5 +73,32 @@ namespace EcommerceWebApp
             chargeCards(list);
         }
 
+       
+
+        protected void DdlCamp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DdlCriterion.Items.Clear();
+            if (DdlCamp.SelectedValue == "Brand")
+            {
+                BrandBusiness brandBusiness = new BrandBusiness();
+                DdlCriterion.DataSource = brandBusiness.Listing();
+                DdlCriterion.DataValueField = "Id";
+                DdlCriterion.DataTextField= "Name";
+                DdlCriterion.DataBind();
+            }
+            else if (DdlCamp.SelectedValue == "Price")
+            {
+                DdlCriterion.Items.Add("De menor a mayor valor");
+                DdlCriterion.Items.Add("De mayor a menor valor");
+            }
+            else if (DdlCamp.SelectedValue == "Category")
+            {
+                CategoryBusiness categoryBusiness = new CategoryBusiness();
+                DdlCriterion.DataSource = categoryBusiness.Listing();
+                DdlCriterion.DataValueField = "Id";
+                DdlCriterion.DataTextField = "Name";
+                DdlCriterion.DataBind();
+            }
+        }
     }
 }
