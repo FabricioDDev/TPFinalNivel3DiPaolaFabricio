@@ -22,6 +22,7 @@ namespace EcommerceWebApp
             if(!IsPostBack)
                 chargeCards(articleBusiness.Listing());
             stateCkbxAdvancedFilter();
+            chargeDdlCamp();
         }
         private void stateCkbxAdvancedFilter()
         {
@@ -41,6 +42,13 @@ namespace EcommerceWebApp
                 DdlCriterion.Visible = false;
                 BtnApplyFilter.Visible = false;
             }
+        }
+        private void chargeDdlCamp()
+        {
+            DdlCamp.Items.Clear();
+            DdlCamp.Items.Add("Marcas");
+            DdlCamp.Items.Add("Precio");
+            DdlCamp.Items.Add("Categorias");
         }
         private void chargeCards(List<Article>List)
         {
