@@ -11,22 +11,36 @@ namespace EcommerceWebApp
 {
     public partial class DashBoardWithCards : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public DashBoardWithCards()
         {
-            if(!IsPostBack)
-                chargeCards();
+            articleBusiness = new ArticleBusiness();
+            
         }
-        private void chargeCards()
+        public ArticleBusiness articleBusiness;
+        protected void Page_Load(object sender, EventArgs e)
+        { 
+            if(!IsPostBack)
+                chargeCards(articleBusiness.Listing());
+        }
+        private void chargeCards(List<Article>List)
         {
-            // DashBoard. DashBoardMaster = new DashBoard();
-            RptrCards.DataSource = DashBoard.ArticleList;
+            RptrCards.DataSource = List;
             RptrCards.DataBind();
         }
+        
 
         protected void BtnDetail_Click(object sender, EventArgs e)
         {
             string Id = ((Button)sender).CommandArgument;
             Response.Redirect("FrmDetail.aspx?id=" + Id);
+        }
+
+        protected void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            List<Article>list = articleBusiness.Listing().FindAll(
+                x => x.Code.ToUpper().Contains(TxtSearch.Text.ToUpper()) ||
+                x.Name.ToUpper().Contains(TxtSearch.Text.ToUpper()));
+            chargeCards(list);
         }
     }
 }

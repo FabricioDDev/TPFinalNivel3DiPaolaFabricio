@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <!-- Filtro Basico -->
+            <label>Buscar</label>
+            <asp:TextBox ID="TxtSearch" AutoPostBack="true" OnTextChanged="TxtSearch_TextChanged" runat="server"></asp:TextBox>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
              <asp:Repeater ID="RptrCards" runat="server">
