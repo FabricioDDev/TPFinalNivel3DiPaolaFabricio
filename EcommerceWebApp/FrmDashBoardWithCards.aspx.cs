@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DomainModel;
 using BusinessModel;
+using System.Drawing;
 
 namespace EcommerceWebApp
 {
@@ -37,9 +38,13 @@ namespace EcommerceWebApp
                 DdlCamp.Visible = true;
                 DdlCriterion.Visible = true;
                 BtnApplyFilter.Visible = true;
+                LblSearch.Enabled=false;
+                TxtSearch.Enabled = false;
             }
             else if (CkbxAdvancedFilter.Checked == false)
             {
+                LblSearch.Enabled = true;
+                TxtSearch.Enabled = true;
                 LblCamp.Visible = false;
                 LblCriterion.Visible = false;
                 DdlCamp.Visible = false;
@@ -53,8 +58,7 @@ namespace EcommerceWebApp
             DdlCamp.Items.Add("Brand");
             DdlCamp.Items.Add("Price");
             DdlCamp.Items.Add("Category");
-        }
-        
+        }  
         private void chargeCards(List<Article>List)
         {
             RptrCards.DataSource = List;
@@ -72,9 +76,6 @@ namespace EcommerceWebApp
                 x.Name.ToUpper().Contains(TxtSearch.Text.ToUpper()));
             chargeCards(list);
         }
-
-       
-
         protected void DdlCamp_SelectedIndexChanged(object sender, EventArgs e)
         {
             DdlCriterion.Items.Clear();
@@ -88,8 +89,8 @@ namespace EcommerceWebApp
             }
             else if (DdlCamp.SelectedValue == "Price")
             {
-                DdlCriterion.Items.Add("De menor a mayor valor");
-                DdlCriterion.Items.Add("De mayor a menor valor");
+                DdlCriterion.Items.Add("- to +");
+                DdlCriterion.Items.Add("+ to -");
             }
             else if (DdlCamp.SelectedValue == "Category")
             {
@@ -99,6 +100,13 @@ namespace EcommerceWebApp
                 DdlCriterion.DataTextField = "Name";
                 DdlCriterion.DataBind();
             }
+        }
+
+        protected void BtnApplyFilter_Click(object sender, EventArgs e)
+        {
+            string Camp = DdlCamp.SelectedValue;
+            string Criterion = DdlCriterion.SelectedValue;
+            chargeCards(articleBusiness.listFiltered(Camp, Criterion));
         }
     }
 }

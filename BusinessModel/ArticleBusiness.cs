@@ -97,5 +97,49 @@ namespace BusinessModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+        public List<Article> listFiltered(string camp, string criterion)
+        {
+            List<Article> list = new List<Article>();
+            try
+            {
+                string query = "SELECT A.Id as IdArticle, Codigo, Nombre, A.Descripcion as Adescription, ImagenUrl, Precio, M.Id as IdBrand, M.Descripcion as Bdescription, C.Id as IdCategory, C.Descripcion AS Cdescription from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id AND A.IdCategoria = C.Id ";
+                switch (camp)
+                {
+                    case "Brand":
+                        query += "and A.IdMarca = " + criterion.ToString();
+                        break;
+                    case "Price":
+                        break;
+                    case "Category":
+                        query += " and A.IdCategoria = " + criterion.ToString();
+                        break;
+                    default:
+                        break;
+                }
+
+                data.Query(query);
+                data.Read();
+                while (data.readerProp.Read())
+                {
+                    Article aux = new Article();
+                    aux.Id = (int)data.readerProp["IdArticle"];
+                    aux.Code = (string)data.readerProp["Codigo"];
+                    aux.Name = (string)data.readerProp["Nombre"];
+                    aux.Description = (string)data.readerProp["Adescription"];
+                    aux.Image = (string)data.readerProp["ImagenUrl"];
+                    aux.Price = (decimal)data.readerProp["Precio"];
+                    aux.Brand = new Brand();
+                    aux.Brand.Id = (int)data.readerProp["IdBrand"];
+                    aux.Brand.Name = (string)data.readerProp["Bdescription"];
+                    aux.Category = new Category();
+                    aux.Category.Id = (int)data.readerProp["IdCategory"];
+                    aux.Category.Name = (string)data.readerProp["Cdescription"];
+                    list.Add(aux);
+                }
+                return list;
+            }
+            catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }

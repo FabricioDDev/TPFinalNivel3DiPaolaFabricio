@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
      <!-- Filtro Basico -->
-            <label>Buscar</label>
+             <asp:Label ID="LblSearch" runat="server" Text="Search"></asp:Label>
             <asp:TextBox ID="TxtSearch" AutoPostBack="true" OnTextChanged="TxtSearch_TextChanged" runat="server"></asp:TextBox>
    
     <!--Advanced Filter -->
@@ -17,7 +17,7 @@
             <asp:Label ID="LblCriterion" runat="server" Text="Criterion"></asp:Label>
             <asp:DropDownList ID="DdlCriterion"  runat="server"></asp:DropDownList>
 
-            <asp:Button ID="BtnApplyFilter" runat="server" Text="Apply" />
+            <asp:Button ID="BtnApplyFilter" OnClick="BtnApplyFilter_Click" runat="server" Text="Apply" />
 
     <!-- Cards -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -29,6 +29,7 @@
                             <img src="<%#Eval("Image")%>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><%#Eval("Name")%></h5>
+                                <p><%#Eval("Price") %></p>
                                 <asp:Button ID="BtnDetail" OnClick="BtnDetail_Click" runat="server" Text="Detail" CommandArgument='<%#Eval("Id")%>'/>
                             </div>
                         </div>
