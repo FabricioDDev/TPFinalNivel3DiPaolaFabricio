@@ -13,5 +13,10 @@ namespace EcommerceWebApp
         {
 
         }
+
+        protected void GvArticles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
