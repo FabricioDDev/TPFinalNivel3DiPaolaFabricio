@@ -33,6 +33,7 @@
             <asp:Image ID="ImgArticle" runat="server" />
 
             <asp:Button ID="BtnSave" runat="server" Text="Save" />
+            <asp:Button ID="BtnBack" OnClick="BtnBack_Click" runat="server" Text="Back" />
         </div>
     </form>
 </body>

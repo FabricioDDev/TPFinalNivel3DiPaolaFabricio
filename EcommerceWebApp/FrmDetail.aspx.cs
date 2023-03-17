@@ -13,5 +13,10 @@ namespace EcommerceWebApp
         {
             string IdArticle = Request.QueryString["id"];
         }
+
+        protected void BtnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmDashBoardWithCards.aspx", false);
+        }
     }
 }
