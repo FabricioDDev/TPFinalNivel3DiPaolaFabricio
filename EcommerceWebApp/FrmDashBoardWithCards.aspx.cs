@@ -24,10 +24,8 @@ namespace EcommerceWebApp
             {
                 chargeCards(articleBusiness.Listing());
                 chargeDdlCamp();
-            }
-                
+            }  
             stateCkbxAdvancedFilter();
-            
         }
         private void stateCkbxAdvancedFilter()
         {
@@ -107,6 +105,11 @@ namespace EcommerceWebApp
             string Camp = DdlCamp.SelectedValue;
             string Criterion = DdlCriterion.SelectedValue;
             chargeCards(articleBusiness.listFiltered(Camp, Criterion));
+        }
+
+        protected void BtnChangeView_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmDashBoardWithGrid.aspx", false);
         }
     }
 }

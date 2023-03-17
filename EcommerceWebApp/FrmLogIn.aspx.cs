@@ -55,13 +55,6 @@ namespace EcommerceWebApp
                         LblWarning.Text = "Oh, Forgot to write your Email or PassWord?";
                         return false;
                     }
-
-                    if (!Helper.validatingTxtLong(txt.Text, 5, 30))
-                    {
-                        LblWarning.Visible = true;
-                        LblWarning.Text = "Oh, the camp should have between 5 and 30 characters. Try again!...";
-                        return false;
-                    }
                 }
                 return true;
             }

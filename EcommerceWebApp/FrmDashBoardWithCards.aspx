@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:Button ID="BtnChangeView" OnClick="BtnChangeView_Click" runat="server" Text="Change View" />
      <!-- Filtro Basico -->
              <asp:Label ID="LblSearch" runat="server" Text="Search"></asp:Label>
             <asp:TextBox ID="TxtSearch" AutoPostBack="true" OnTextChanged="TxtSearch_TextChanged" runat="server"></asp:TextBox>
