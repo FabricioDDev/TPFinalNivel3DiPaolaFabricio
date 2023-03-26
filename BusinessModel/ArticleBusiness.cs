@@ -35,7 +35,7 @@ namespace BusinessModel
                     aux.Name = (string)data.readerProp["Nombre"];
                     aux.Description = (string)data.readerProp["Adescription"];
                     aux.Image = (string)data.readerProp["ImagenUrl"];
-                    aux.Price = (decimal)data.readerProp["Precio"];
+                    aux.Price = (Decimal)data.readerProp["Precio"];
                     aux.Brand = new Brand();
                     aux.Brand.Id = (int)data.readerProp["IdBrand"];
                     aux.Brand.Name = (string)data.readerProp["Bdescription"];
@@ -127,7 +127,7 @@ namespace BusinessModel
                     aux.Name = (string)data.readerProp["Nombre"];
                     aux.Description = (string)data.readerProp["Adescription"];
                     aux.Image = (string)data.readerProp["ImagenUrl"];
-                    aux.Price = (decimal)data.readerProp["Precio"];
+                    aux.Price = (Decimal)data.readerProp["Precio"];
                     aux.Brand = new Brand();
                     aux.Brand.Id = (int)data.readerProp["IdBrand"];
                     aux.Brand.Name = (string)data.readerProp["Bdescription"];

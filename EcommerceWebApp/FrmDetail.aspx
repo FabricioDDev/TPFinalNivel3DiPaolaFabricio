@@ -16,6 +16,7 @@
             <asp:Label ID="FullName" runat="server" Text=""></asp:Label>
 
             <asp:Image ID="ImgArticle" runat="server" />
+            <asp:Label ID="LblPrice1" runat="server" Text=""></asp:Label>
 
 
             <label>Specification</label>

@@ -2,6 +2,7 @@
 using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,15 +25,30 @@ namespace EcommerceWebApp
             }
                
         }
+        private void chargeImage()
+        {
+            if (article.Image.Contains("https"))
+            {
+                ImgArticle.ImageUrl = article.Image;
+            }
+            else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Id + ".jpg")))
+            {
+                ImgArticle.ImageUrl = "~/Images/Articles/Article-" + article.Id + ".jpg";
+            }
+            else
+                ImgArticle.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
+        }
         private void chargeControlls()
         {
             FullName.Text = article.Brand + " " + article.Name;
+            LblPrice1.Text = article.Price.ToString("C");
             TxtCode.Text = article.Code;
             TxtName.Text = article.Name;    
             TxtDescription.Text = article.Description;
             DdlBrand.SelectedValue = article.Brand.Id.ToString();
             DdlCategory.SelectedValue = article.Category.Id.ToString();
             TxtPrice.Text = article.Price.ToString();
+            chargeImage();
         }
         private void chargeDdl()
         {
