@@ -23,5 +23,9 @@ namespace EcommerceWebApp
             Response.Redirect("FrmLogIn.aspx", false);
         }
 
+        protected void BtnCreate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmArticleRegister.aspx", false);
+        }
     }
 }

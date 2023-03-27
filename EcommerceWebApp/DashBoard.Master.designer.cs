@@ -51,6 +51,15 @@ namespace EcommerceWebApp
         protected global::System.Web.UI.WebControls.Image ImgProfile;
 
         /// <summary>
+        /// Control BtnCreate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCreate;
+
+        /// <summary>
         /// Control ContentPlaceHolder1.
         /// </summary>
         /// <remarks>

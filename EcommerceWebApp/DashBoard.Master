@@ -20,8 +20,8 @@
                     <asp:Image ID="ImgProfile" runat="server" />
                     <label>Mi Perfil</label>
                 </a>
-
-           
+            <asp:Button ID="BtnCreate" OnClick="BtnCreate_Click" runat="server" Text="Create" />
+            
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             <!--main: catalogo v1 filtros tarjetas-->
 
