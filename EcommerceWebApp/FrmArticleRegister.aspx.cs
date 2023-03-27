@@ -16,7 +16,7 @@ namespace EcommerceWebApp
         {
             articleBusiness = new ArticleBusiness();
         }
-        public Article article = null;
+        private static Article article;
         private ArticleBusiness articleBusiness;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,8 +32,10 @@ namespace EcommerceWebApp
         }
         private void chargeControlls()
         {
+            TxtId.Text = article.Id.ToString();
             TxtCode.Text = article.Code;
             TxtName.Text = article.Name;
+            TxtPrice.Text = article.Price.ToString();
             TxtDescription.Text = article.Description;
             DdlBrand.SelectedValue = article.Brand.Id.ToString();
             DdlCategory.SelectedValue = article.Category.Id.ToString();
@@ -59,14 +61,62 @@ namespace EcommerceWebApp
                 ImgArticle.ImageUrl = article.Image;
                 TxtUrl.Text = article.Image;
             }
-            else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Id + ".jpg")))
+            else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg")))
             {
-                ImgArticle.ImageUrl = "~/Images/Articles/Article-" + article.Id + ".jpg";
+                ImgArticle.ImageUrl = "~/Images/Articles/Article-" + article.Code + ".jpg";
             }
             else
             {
                 ImgArticle.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
             }
+        }
+        protected void BtnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmDashBoardWithCards.aspx", false);
+        }
+        private void saveImg()
+        {
+            //prox hacer mas abstracto, en clase helper.
+            if (!string.IsNullOrEmpty(TxtUrl.Text))
+                article.Image = TxtUrl.Text;
+            else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg")))
+            {
+                File.Delete(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
+                InputFile.PostedFile.SaveAs(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
+                article.Image = "Article-" + article.Code;
+            }
+            else
+            {
+                InputFile.PostedFile.SaveAs(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
+                article.Image = "Article-" + article.Code;
+            }
+        }
+        private void savesChanges()
+        {
+            if (article.Id != 0)
+            {
+                article.Id = int.Parse(TxtId.Text);
+                articleBusiness.Update(article);
+            }
+
+            else
+                articleBusiness.Insert(article);
+            Response.Redirect("FrmDashBoardWithCards.aspx", false);
+        }
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            article = article == null? new Article() : article;
+
+            article.Code = TxtCode.Text;
+            article.Name= TxtName.Text;
+            article.Description= TxtDescription.Text;
+            article.Price = decimal.Parse(TxtPrice.Text);
+            article.Brand = new Brand();
+            article.Brand.Id = int.Parse(DdlBrand.SelectedValue);
+            article.Category = new Category();
+            article.Category.Id = int.Parse(DdlCategory.SelectedValue);
+            saveImg();
+            savesChanges();
         }
     }
 }
