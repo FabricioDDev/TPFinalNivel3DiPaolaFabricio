@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="BtnSave" runat="server" Text="Save" />
+            <asp:Button ID="BtnUpdate" OnClick="BtnSave_Click" runat="server" Text="Update" />
             <asp:Button ID="BtnBack" OnClick="BtnBack_Click" runat="server" Text="Back" />
 
             <asp:Label ID="FullName" runat="server" Text=""></asp:Label>
@@ -21,27 +21,17 @@
 
             <label>Specification</label>
 
-            <asp:Label ID="LblCode" runat="server" Text="Code"></asp:Label>
-            <asp:TextBox ID="TxtCode" Enabled="false" runat="server"></asp:TextBox>
+           
 
-            <asp:Label ID="LblName" runat="server" Text="Name"></asp:Label>
-            <asp:TextBox ID="TxtName"  runat="server"></asp:TextBox>
-
-            <asp:Label ID="LblDescription" runat="server" Text="Description"></asp:Label>
-            <asp:TextBox ID="TxtDescription" runat="server"></asp:TextBox>
-
-            <asp:Label ID="LblPrice" runat="server" Text="Price"></asp:Label>
-            <asp:TextBox ID="TxtPrice"  runat="server"></asp:TextBox>
-
-             <asp:Label ID="LblBrand" runat="server" Text="Brand"></asp:Label>
-            <asp:DropDownList ID="DdlBrand" runat="server"></asp:DropDownList>
-
-            <asp:Label ID="LblCategory" runat="server" Text="Category"></asp:Label>
-            <asp:DropDownList ID="DdlCategory" runat="server"></asp:DropDownList>
-
-            <asp:Label ID="LblImage" runat="server" Text="Image"></asp:Label>
-            <input type="file" />
-            
+            <asp:GridView ID="GvArticle" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="Code" HeaderText="Code" />
+                    <asp:BoundField DataField="Brand.Name" HeaderText="Brand" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                    <asp:BoundField DataField="Category.Name" HeaderText="Category" />
+                </Columns>
+            </asp:GridView>
 
             
         </div>

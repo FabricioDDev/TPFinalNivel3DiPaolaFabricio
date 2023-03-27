@@ -20,7 +20,6 @@ namespace EcommerceWebApp
             article = articleBusiness.Listing().Find(x => x.Id == int.Parse(Request.QueryString["id"]));
             if (!IsPostBack)
             {
-                chargeDdl();
                 chargeControlls();
             }
                
@@ -40,33 +39,23 @@ namespace EcommerceWebApp
         }
         private void chargeControlls()
         {
+            List<Article> articleList = new List<Article>();
+            articleList.Add(article);
             FullName.Text = article.Brand + " " + article.Name;
-            LblPrice1.Text = article.Price.ToString("C");
-            TxtCode.Text = article.Code;
-            TxtName.Text = article.Name;    
-            TxtDescription.Text = article.Description;
-            DdlBrand.SelectedValue = article.Brand.Id.ToString();
-            DdlCategory.SelectedValue = article.Category.Id.ToString();
-            TxtPrice.Text = article.Price.ToString();
+            LblPrice1.Text = "$" + article.Price.ToString();
             chargeImage();
-        }
-        private void chargeDdl()
-        {
-            BrandBusiness brandBusiness = new BrandBusiness();
-            DdlBrand.DataSource= brandBusiness.Listing();
-            DdlBrand.DataValueField = "Id";
-            DdlBrand.DataTextField = "Name";
-            DdlBrand.DataBind();
-
-            CategoryBusiness categoryBusiness = new CategoryBusiness();
-            DdlCategory.DataSource= categoryBusiness.Listing();
-            DdlCategory.DataValueField = "Id";
-            DdlCategory.DataTextField = "Name";
-            DdlCategory.DataBind();
+            GvArticle.DataSource = articleList;
+            GvArticle.DataBind();
         }
         protected void BtnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("FrmDashBoardWithCards.aspx", false);
         }
+
+        protected void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmArticleRegister.aspx?id=" + article.Id);
+        }
+
     }
 }
