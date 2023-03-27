@@ -54,8 +54,8 @@ namespace EcommerceWebApp
 
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("FrmArticleRegister.aspx?id=" + article.Id);
         }
-
     }
 }
