@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FrmArticleRegister.aspx" />
     <Content Include="FrmDashBoardWithCards.aspx" />
     <Content Include="FrmDashBoardWithGrid.aspx" />
     <Content Include="FrmDetail.aspx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="DashBoard.Master.designer.cs">
       <DependentUpon>DashBoard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArticleRegister.aspx.cs">
+      <DependentUpon>FrmArticleRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmArticleRegister.aspx.designer.cs">
+      <DependentUpon>FrmArticleRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmDashBoardWithCards.aspx.cs">
       <DependentUpon>FrmDashBoardWithCards.aspx</DependentUpon>
