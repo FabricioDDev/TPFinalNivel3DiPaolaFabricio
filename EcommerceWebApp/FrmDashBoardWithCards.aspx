@@ -31,6 +31,7 @@
                                 <h5 class="card-title"><%#Eval("Name")%></h5>
                                 <p><%#Eval("Price") %></p>
                                 <asp:Button ID="BtnDetail" OnClick="BtnDetail_Click" runat="server" Text="Detail" CommandArgument='<%#Eval("Id")%>'/>
+                                <asp:Button ID="BtnFavorites" OnClick="BtnFavorites_Click" runat="server" Text="Add to Favorites" CommandArgument='<%#Eval("Id")%>' />
                             </div>
                         </div>
                    

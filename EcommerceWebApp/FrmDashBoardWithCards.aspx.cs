@@ -111,5 +111,10 @@ namespace EcommerceWebApp
         {
             Response.Redirect("FrmDashBoardWithGrid.aspx", false);
         }
+
+        protected void BtnFavorites_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
