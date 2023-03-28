@@ -140,12 +140,20 @@
     <Compile Include="LogIn_SignUp.Master.designer.cs">
       <DependentUpon>LogIn_SignUp.Master</DependentUpon>
     </Compile>
+    <Compile Include="Profile.Master.cs">
+      <DependentUpon>Profile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.Master.designer.cs">
+      <DependentUpon>Profile.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogIn_SignUp.Master" />
     <Content Include="DashBoard.Master" />
     <None Include="packages.config" />
+    <Content Include="Profile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
