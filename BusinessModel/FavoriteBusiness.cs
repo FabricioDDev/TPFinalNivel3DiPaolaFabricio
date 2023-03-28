@@ -29,5 +29,13 @@ namespace BusinessModel
             }
             return list;
         }
+        public void insertFavorite(Favorites favorites)
+        {
+            data.Query("insert into FAVORITOS values (@Id, @IdUser, @IdArticulo)");
+            data.Parameters("@Id", favorites.Id);
+            data.Parameters("@IdUser", favorites.IdUser);
+            data.Parameters("@IdArticulo", favorites.IdArticle);
+            data.Execute();
+        }
     }
 }
