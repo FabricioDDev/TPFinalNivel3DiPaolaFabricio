@@ -72,6 +72,7 @@
     <Content Include="FrmDashBoardWithGrid.aspx" />
     <Content Include="FrmDetail.aspx" />
     <Content Include="FrmError.aspx" />
+    <Content Include="FrmFavorites.aspx" />
     <Content Include="FrmLogIn.aspx" />
     <Content Include="FrmSignUp.aspx" />
     <Content Include="Web.config" />
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="FrmError.aspx.designer.cs">
       <DependentUpon>FrmError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFavorites.aspx.cs">
+      <DependentUpon>FrmFavorites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmFavorites.aspx.designer.cs">
+      <DependentUpon>FrmFavorites.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmLogIn.aspx.cs">
       <DependentUpon>FrmLogIn.aspx</DependentUpon>
