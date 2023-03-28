@@ -29,12 +29,11 @@ namespace BusinessModel
             }
             return list;
         }
-        public void insertFavorite(Favorites favorites)
+        public void insertFavorite(int IdUser, int IdArticle)
         {
-            data.Query("insert into FAVORITOS values (@Id, @IdUser, @IdArticulo)");
-            data.Parameters("@Id", favorites.Id);
-            data.Parameters("@IdUser", favorites.IdUser);
-            data.Parameters("@IdArticulo", favorites.IdArticle);
+            data.Query("insert into FAVORITOS values (@IdUser, @IdArticulo)");
+            data.Parameters("@IdUser", IdUser);
+            data.Parameters("@IdArticulo", IdArticle);
             data.Execute();
         }
         public void deleteFavorite(int Id)

@@ -18,12 +18,15 @@ namespace EcommerceWebApp
             
         }
         public ArticleBusiness articleBusiness;
+        public static int IdUser;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 chargeCards(articleBusiness.Listing());
                 chargeDdlCamp();
+                User user = (User)Session["activeUser"];
+                IdUser = user.idProperty;
             }  
             stateCkbxAdvancedFilter();
         }
@@ -114,7 +117,9 @@ namespace EcommerceWebApp
 
         protected void BtnFavorites_Click(object sender, EventArgs e)
         {
-
+            FavoriteBusiness favoriteBusiness = new FavoriteBusiness();
+            string Id = ((Button)sender).CommandArgument;
+            favoriteBusiness.insertFavorite(IdUser,int.Parse(Id));
         }
     }
 }
