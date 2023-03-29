@@ -44,9 +44,14 @@ namespace DB
         {
             try
             {
+                
                 command.Parameters.AddWithValue(parameter, value);
             }
             catch (Exception ex) { throw ex; }
+        }
+        public void clearParameter()
+        {
+            command.Parameters.Clear();
         }
         public void Execute()
         {
