@@ -24,11 +24,17 @@ namespace EcommerceWebApp
         private static User user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            user = (User)Session["activeUser"];
-            ListingArticleFavorites();
-            RptrFavorites.DataSource= articles;
+            if(!IsPostBack)
+            {
+                user = (User)Session["activeUser"];
+                ListingArticleFavorites();
+                chargeRptrFavorites();
+            }
+        }
+        public void chargeRptrFavorites()
+        {
+            RptrFavorites.DataSource = articles;
             RptrFavorites.DataBind();
-            ListingArticleFavorites();
         }
         public void ListingArticleFavorites()
         {
@@ -40,6 +46,12 @@ namespace EcommerceWebApp
                 }
             }
 
+        }
+
+        protected void BtnDetail_Click(object sender, EventArgs e)
+        {
+            string Id = ((Button)sender).CommandArgument;
+            Response.Redirect("FrmDetail.aspx?id=" + Id);
         }
     }
 }
