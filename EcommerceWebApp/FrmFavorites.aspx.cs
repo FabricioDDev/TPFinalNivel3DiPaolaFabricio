@@ -53,5 +53,13 @@ namespace EcommerceWebApp
             string Id = ((Button)sender).CommandArgument;
             Response.Redirect("FrmDetail.aspx?id=" + Id);
         }
+
+        protected void BtnDeleteFavorite_Click(object sender, EventArgs e)
+        {
+            string Id = ((Button)sender).CommandArgument;
+            favoriteBusiness.deleteFavorite(int.Parse(Id), user.idProperty);
+            ListingArticleFavorites();
+            chargeRptrFavorites();
+        }
     }
 }

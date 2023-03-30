@@ -42,11 +42,17 @@ namespace BusinessModel
             data.Parameters("@IdArticulo", IdArticle);
             data.Execute();
         }
-        public void deleteFavorite(int Id)
+        public void deleteFavorite(int Id, int IdU)
         {
-            data.Query("delete FAVORITOS where Id = @Id");
-            data.Parameters("@Id", Id);
-            data.Execute();
+            try
+            {
+                data.clearParameter();
+                data.Query("delete FAVORITOS where IdArticulo = @Id and IdUser = @IdU");
+                data.Parameters("@Id", Id);
+                data.Parameters("@IdU", IdU);
+                data.Execute();
+            }catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
         }
     }
 }
