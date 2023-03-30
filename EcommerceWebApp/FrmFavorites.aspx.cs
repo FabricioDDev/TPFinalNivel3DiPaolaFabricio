@@ -61,5 +61,12 @@ namespace EcommerceWebApp
             ListingArticleFavorites();
             chargeRptrFavorites();
         }
+
+        protected void BtnDeleteAll_Click(object sender, EventArgs e)
+        {
+            favoriteBusiness.deleteAllFavorites(user.idProperty);
+            RptrFavorites.Visible = false;
+            LblEmpty.Visible = true;
+        }
     }
 }

@@ -54,5 +54,17 @@ namespace BusinessModel
             }catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+        public void deleteAllFavorites(int IdU)
+        {
+            try
+            {
+                data.clearParameter();
+                data.Query("delete FAVORITOS where IdUser = @IdU");
+                data.Parameters("@IdU", IdU);
+                data.Execute();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }

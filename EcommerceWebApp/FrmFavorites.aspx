@@ -3,7 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Favorites!<3</h1>
-    <asp:Button ID="BtnDeleteAll" runat="server" Text="Delete All Favorites" />
+    <asp:Button ID="BtnDeleteAll" OnClick="BtnDeleteAll_Click" runat="server" Text="Delete All Favorites" />
+    <asp:Label ID="LblEmpty" runat="server" Text="Empty" Visible="false"></asp:Label>
     <asp:Repeater ID="RptrFavorites" runat="server">
         <ItemTemplate>
                         <div class="card" style="width: 18rem;">
