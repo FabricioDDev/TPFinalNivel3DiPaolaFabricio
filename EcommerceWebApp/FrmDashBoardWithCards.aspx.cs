@@ -27,6 +27,7 @@ namespace EcommerceWebApp
                 chargeDdlCamp();
                 User user = (User)Session["activeUser"];
                 IdUser = user.idProperty;
+                
             }  
             stateCkbxAdvancedFilter();
         }
@@ -121,5 +122,7 @@ namespace EcommerceWebApp
             string Id = ((Button)sender).CommandArgument;
             favoriteBusiness.insertFavorite(IdUser,int.Parse(Id));
         }
+
+        
     }
 }

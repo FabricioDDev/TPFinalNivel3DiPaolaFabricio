@@ -26,7 +26,7 @@
                 <ItemTemplate>
                     
                         <div class="card" style="width: 18rem;">
-                            <img src="<%#Eval("Image")%>" class="card-img-top" alt="...">
+                            <img src="<%#Eval("Image") %>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><%#Eval("Name")%></h5>
                                 <p><%#Eval("Price") %></p>

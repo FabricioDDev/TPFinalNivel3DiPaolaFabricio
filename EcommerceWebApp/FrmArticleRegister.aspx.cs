@@ -63,7 +63,7 @@ namespace EcommerceWebApp
             }
             else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg")))
             {
-                ImgArticle.ImageUrl = "~/Images/Articles/Article-" + article.Code + ".jpg";
+                ImgArticle.ImageUrl = "./Images/Articles/Article-" + article.Code + ".jpg";
             }
             else
             {
@@ -77,18 +77,18 @@ namespace EcommerceWebApp
         private void saveImg()
         {
             //prox hacer mas abstracto, en clase helper.
-            if (!string.IsNullOrEmpty(TxtUrl.Text))
+            if (!string.IsNullOrEmpty(TxtUrl.Text) && TxtUrl.Text.Contains("https"))
                 article.Image = TxtUrl.Text;
             else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg")))
             {
                 File.Delete(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
                 InputFile.PostedFile.SaveAs(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
-                article.Image = "Article-" + article.Code;
+                article.Image = "./Images/Articles/Article-" + article.Code + ".jpg";
             }
             else
             {
                 InputFile.PostedFile.SaveAs(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
-                article.Image = "Article-" + article.Code;
+                article.Image = "./Images/Articles/Article-" + article.Code + ".jpg";
             }
         }
         private void savesChanges()

@@ -32,7 +32,7 @@ namespace EcommerceWebApp
             }
             else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg")))
             {
-                ImgArticle.ImageUrl = "~/Images/Articles/Article-" + article.Code + ".jpg";
+                ImgArticle.ImageUrl = article.Image;
             }
             else
                 ImgArticle.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
