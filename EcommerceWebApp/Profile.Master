@@ -12,10 +12,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="BtnDashBoard" runat="server" Text="Back to DashBoard" />
+            <asp:Button ID="BtnDashBoard" OnClick="BtnDashBoard_Click" runat="server" Text="Back to DashBoard" />
 
-            <asp:Button ID="BtnFavorites" runat="server" Text="Favorites" />
-            <asp:Button ID="BtnConfig" runat="server" Text="Config" />
+            <asp:Button ID="BtnFavorites" OnClick="BtnFavorites_Click" runat="server" Text="Favorites" />
+            <asp:Button ID="BtnConfig" OnClick="BtnConfig_Click" runat="server" Text="Config" />
             
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

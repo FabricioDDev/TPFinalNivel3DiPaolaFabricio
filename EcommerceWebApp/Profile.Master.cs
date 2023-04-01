@@ -13,5 +13,20 @@ namespace EcommerceWebApp
         {
 
         }
+
+        protected void BtnDashBoard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmDashBoardWithCards.aspx", false);
+        }
+
+        protected void BtnFavorites_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmFavorites.aspx", false);
+        }
+
+        protected void BtnConfig_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmUserConfig.aspx", false);
+        }
     }
 }

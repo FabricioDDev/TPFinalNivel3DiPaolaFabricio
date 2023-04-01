@@ -75,6 +75,7 @@
     <Content Include="FrmFavorites.aspx" />
     <Content Include="FrmLogIn.aspx" />
     <Content Include="FrmSignUp.aspx" />
+    <Content Include="FrmUserConfig.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,13 @@
       <DependentUpon>Profile.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmUserConfig.aspx.cs">
+      <DependentUpon>FrmUserConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmUserConfig.aspx.designer.cs">
+      <DependentUpon>FrmUserConfig.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogIn_SignUp.Master" />
