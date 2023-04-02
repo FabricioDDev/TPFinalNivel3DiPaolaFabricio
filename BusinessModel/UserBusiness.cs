@@ -84,9 +84,9 @@ namespace BusinessModel
                 data.Query("update USERS set email = @email, pass = @pass, nombre = @nombre, apellido = @apellido, urlImagenPerfil = @urlImagenPerfil where Id = @Id");
                 data.Parameters("@email", user.EmailProperty);
                 data.Parameters("@pass", user.PassProperty);
-                data.Parameters("@nombre", user.nameProperty);
-                data.Parameters("@apellido", user.lastNameProperty);
-                data.Parameters("@urlImagenPerfil", user.UrlProfileImage);
+                data.Parameters("@nombre", (object)user.nameProperty ?? DBNull.Value);
+                data.Parameters("@apellido", (object)user.lastNameProperty ?? DBNull.Value);
+                data.Parameters("@urlImagenPerfil", (object)user.UrlProfileImage ?? DBNull.Value);
                 data.Parameters("@Id", user.idProperty);
                 data.Execute();
             }

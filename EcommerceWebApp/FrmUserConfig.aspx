@@ -23,6 +23,6 @@
             <asp:Label ID="LblUrl" runat="server" Text="Url"></asp:Label>
             <asp:TextBox ID="TxtUrl" runat="server"></asp:TextBox>
 
-    <asp:Button ID="BtnSave" runat="server" Text="Save" />
+    <asp:Button ID="BtnSave" OnClick="BtnSave_Click" runat="server" Text="Save" />
 
 </asp:Content>
