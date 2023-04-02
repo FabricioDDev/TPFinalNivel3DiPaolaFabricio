@@ -15,20 +15,37 @@ namespace EcommerceWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            User user = (User)Session["activeUser"];
-            ImgProfile.ImageUrl = user.UrlProfileImage != null? user.UrlProfileImage : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
-            
+            if (Security.isErrorSessionActive(Session["Error"]))
+                Response.Redirect("FrmError.aspx", false);
+            if (!Security.isUserActive(Session["activeUser"]))
+                Response.Redirect("FrmSignUp.aspx", false);
+            if (!IsPostBack)
+                chargeImgProfile();
+        }
+        private void chargeImgProfile()
+        {
+            try
+            {
+                User user = (User)Session["activeUser"];
+                ImgProfile.ImageUrl = user.UrlProfileImage != null ? user.UrlProfileImage : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnSignOut_Click(object sender, EventArgs e)
         {
-            Session.Clear();
-            Response.Redirect("FrmLogIn.aspx", false);
+            try
+            {
+                Session.Clear();
+                Response.Redirect("FrmLogIn.aspx", false);
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnCreate_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FrmArticleRegister.aspx", false);
+            try
+            {
+                Response.Redirect("FrmArticleRegister.aspx", false);
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
     }
 }
