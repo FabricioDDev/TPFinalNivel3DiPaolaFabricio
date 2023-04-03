@@ -42,7 +42,7 @@ namespace EcommerceWebApp
             List<Article> articleList = new List<Article>();
             articleList.Add(article);
             FullName.Text = article.Brand + " " + article.Name;
-            LblPrice1.Text = "$" + article.Price.ToString();
+            LblPrice1.Text = "$" + article.PriceStringFormat;
             chargeImage();
             GvArticle.DataSource = articleList;
             GvArticle.DataBind();

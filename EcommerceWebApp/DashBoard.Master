@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DashBoard.master.cs" Inherits="EcommerceWebApp.DashBoard" %>
-
 <!DOCTYPE html>
 
 <html>

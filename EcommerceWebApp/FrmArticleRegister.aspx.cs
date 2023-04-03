@@ -35,7 +35,7 @@ namespace EcommerceWebApp
             TxtId.Text = article.Id.ToString();
             TxtCode.Text = article.Code;
             TxtName.Text = article.Name;
-            TxtPrice.Text = article.Price.ToString();
+            TxtPrice.Text = article.PriceStringFormat;
             TxtDescription.Text = article.Description;
             DdlBrand.SelectedValue = article.Brand.Id.ToString();
             DdlCategory.SelectedValue = article.Category.Id.ToString();

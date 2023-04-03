@@ -16,7 +16,8 @@ namespace DomainModel
         public Brand Brand { get; set; }
         public Category Category { get; set; }
         public string Image { get; set; }
-        public Decimal  Price { get; set; }
+        public decimal  Price { get; set; }
+        public string PriceStringFormat { get; set; }
 
         //Override
         public override string ToString()
