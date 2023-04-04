@@ -18,39 +18,56 @@ namespace EcommerceWebApp
         {
             if (!IsPostBack)
             {
-                chargeCards(articleBusiness.Listing());
+                chargeGv(articleBusiness.Listing());
                 chargeDdlCamp();
+                chargeDdlCriterion();
             }
 
             stateCkbxAdvancedFilter();
         }
-
+        //GvArticles
+        private void chargeGv(List<Article> List)
+        {
+            GvArticles.DataSource = List;
+            GvArticles.DataBind();
+        }
         protected void GvArticles_SelectedIndexChanged(object sender, EventArgs e)
         {
             var Id = GvArticles.SelectedDataKey.Value.ToString();
             Response.Redirect("FrmDetail.aspx?Id=" + Id.ToString());
         }
-        private void stateCkbxAdvancedFilter()
+        //Basic Filter
+        protected void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (CkbxAdvancedFilter.Checked == true)
+            List<Article> list = articleBusiness.Listing().FindAll(
+                x => x.Code.ToUpper().Contains(TxtSearch.Text.ToUpper()) ||
+                x.Name.ToUpper().Contains(TxtSearch.Text.ToUpper()));
+            chargeGv(list);
+        }
+        //Advanced Filter
+        private void chargeDdlCriterion()
+        {
+            DdlCriterion.Items.Clear();
+            if (DdlCamp.SelectedValue == "Brand")
             {
-                LblCamp.Visible = true;
-                LblCriterion.Visible = true;
-                DdlCamp.Visible = true;
-                DdlCriterion.Visible = true;
-                BtnApplyFilter.Visible = true;
-                LblSearch.Enabled = false;
-                TxtSearch.Enabled = false;
+                BrandBusiness brandBusiness = new BrandBusiness();
+                DdlCriterion.DataSource = brandBusiness.Listing();
+                DdlCriterion.DataValueField = "Id";
+                DdlCriterion.DataTextField = "Name";
+                DdlCriterion.DataBind();
             }
-            else if (CkbxAdvancedFilter.Checked == false)
+            else if (DdlCamp.SelectedValue == "Price")
             {
-                LblSearch.Enabled = true;
-                TxtSearch.Enabled = true;
-                LblCamp.Visible = false;
-                LblCriterion.Visible = false;
-                DdlCamp.Visible = false;
-                DdlCriterion.Visible = false;
-                BtnApplyFilter.Visible = false;
+                DdlCriterion.Items.Add("- to +");
+                DdlCriterion.Items.Add("+ to -");
+            }
+            else if (DdlCamp.SelectedValue == "Category")
+            {
+                CategoryBusiness categoryBusiness = new CategoryBusiness();
+                DdlCriterion.DataSource = categoryBusiness.Listing();
+                DdlCriterion.DataValueField = "Id";
+                DdlCriterion.DataTextField = "Name";
+                DdlCriterion.DataBind();
             }
         }
         private void chargeDdlCamp()
@@ -59,18 +76,29 @@ namespace EcommerceWebApp
             DdlCamp.Items.Add("Brand");
             DdlCamp.Items.Add("Price");
             DdlCamp.Items.Add("Category");
+            DdlCamp.SelectedIndex = 0;
         }
-        private void chargeCards(List<Article> List)
+        private void stateCkbxAdvancedFilter()
         {
-            GvArticles.DataSource = List;
-            GvArticles.DataBind();
+            if (CkbxAdvancedFilter.Checked == true)
+            {
+                visibleGroupControllsFilter(true);
+            }
+            else if (CkbxAdvancedFilter.Checked == false)
+            {
+                chargeGv(articleBusiness.Listing());
+                visibleGroupControllsFilter(false);
+            }
         }
-        protected void TxtSearch_TextChanged(object sender, EventArgs e)
+        private void visibleGroupControllsFilter(bool visible)
         {
-            List<Article> list = articleBusiness.Listing().FindAll(
-                x => x.Code.ToUpper().Contains(TxtSearch.Text.ToUpper()) ||
-                x.Name.ToUpper().Contains(TxtSearch.Text.ToUpper()));
-            chargeCards(list);
+            LblSearch.Enabled = !visible ? true : false;
+            TxtSearch.Enabled = !visible ? true : false;
+            LblCamp.Visible = visible;
+            LblCriterion.Visible = visible;
+            DdlCamp.Visible = visible;
+            DdlCriterion.Visible = visible;
+            BtnApplyFilter.Visible = visible;
         }
         protected void DdlCamp_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -97,14 +125,22 @@ namespace EcommerceWebApp
                 DdlCriterion.DataBind();
             }
         }
-
         protected void BtnApplyFilter_Click(object sender, EventArgs e)
         {
+            List<Article> articles;
             string Camp = DdlCamp.SelectedValue;
             string Criterion = DdlCriterion.SelectedValue;
-            chargeCards(articleBusiness.listFiltered(Camp, Criterion));
-        }
 
+            if (Criterion == "- to +")
+                articles = articleBusiness.Listing().OrderBy(x => x.Price).Reverse().ToList();
+            else if (Criterion == "+ to -")
+                articles = articleBusiness.Listing().OrderBy(x => x.Price).ToList();
+            else
+                articles = articleBusiness.listFiltered(Camp, Criterion);
+
+            chargeGv(articles);
+        }
+        //
         protected void BtnView_Click(object sender, EventArgs e)
         {
             Response.Redirect("FrmDashBoardWithCards.aspx", false);

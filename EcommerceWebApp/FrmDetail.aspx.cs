@@ -16,13 +16,16 @@ namespace EcommerceWebApp
         public Article article;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticleBusiness articleBusiness = new ArticleBusiness();
-            article = articleBusiness.Listing().Find(x => x.Id == int.Parse(Request.QueryString["id"]));
+            if (Security.isErrorSessionActive(Session["Error"]))
+                Response.Redirect("FrmError.aspx", false);
+            if (!Security.isUserActive(Session["activeUser"]))
+                Response.Redirect("FrmSignUp.aspx", false);
             if (!IsPostBack)
             {
+                ArticleBusiness articleBusiness = new ArticleBusiness();
+                article = articleBusiness.Listing().Find(x => x.Id == int.Parse(Request.QueryString["id"]));
                 chargeControlls();
             }
-               
         }
         private void chargeImage()
         {
@@ -39,22 +42,29 @@ namespace EcommerceWebApp
         }
         private void chargeControlls()
         {
-            List<Article> articleList = new List<Article>();
-            articleList.Add(article);
-            FullName.Text = article.Brand + " " + article.Name;
-            LblPrice1.Text = "$" + article.PriceStringFormat;
-            chargeImage();
-            GvArticle.DataSource = articleList;
-            GvArticle.DataBind();
+            List<Article> articleList = new List<Article> { article};
+            try
+            {
+                FullName.Text = article.Brand + " " + article.Name;
+                LblPrice1.Text = "$" + article.PriceStringFormat;
+                chargeImage();
+                chargeGv(articleList);
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
+        }
+        private void chargeGv(List<Article>list)
+        {
+            try
+            {
+                GvArticle.DataSource = list;
+                GvArticle.DataBind();
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         protected void BtnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("FrmDashBoardWithCards.aspx", false);
         }
-
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("FrmArticleRegister.aspx?id=" + article.Id);
         }
     }
