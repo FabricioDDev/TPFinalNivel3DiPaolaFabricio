@@ -54,7 +54,7 @@ namespace EcommerceWebApp
             try
             {
                 string Id = ((Button)sender).CommandArgument;
-                Response.Redirect("FrmDetail.aspx?id=" + Id);
+                Response.Redirect("FrmDetail.aspx?id=" + Id, false);
             }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
