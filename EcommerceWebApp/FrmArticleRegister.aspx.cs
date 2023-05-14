@@ -1,4 +1,4 @@
-﻿using BusinessModel;
+﻿ using BusinessModel;
 using DomainModel;
 using System;
 using System.Collections.Generic;
@@ -20,27 +20,21 @@ namespace EcommerceWebApp
         private ArticleBusiness articleBusiness;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Security.isErrorSessionActive(Session["Error"]))
+                Response.Redirect("FrmError.aspx", false);
+            if (!Security.isUserActive(Session["activeUser"]))
+                Response.Redirect("FrmSignUp.aspx", false);
             if (!IsPostBack)
             {
                 chargeDdl();
                 if (Request.QueryString["id"] != null)
                 {
-                    article = articleBusiness.Listing().Find(x => x.Id == int.Parse(Request.QueryString["id"]));
+                    chargeArticle(articleBusiness.Listing());
                     chargeControlls();
                 }
             }
         }
-        private void chargeControlls()
-        {
-            TxtId.Text = article.Id.ToString();
-            TxtCode.Text = article.Code;
-            TxtName.Text = article.Name;
-            TxtPrice.Text = article.PriceStringFormat;
-            TxtDescription.Text = article.Description;
-            DdlBrand.SelectedValue = article.Brand.Id.ToString();
-            DdlCategory.SelectedValue = article.Category.Id.ToString();
-            chargeImage();
-        }
+        //charge Ddl
         private void chargeDdl()
         {
             BrandBusiness brandBusiness = new BrandBusiness();
@@ -53,6 +47,27 @@ namespace EcommerceWebApp
             DdlCategory.DataValueField = "Id";
             DdlCategory.DataTextField = "Name";
             DdlCategory.DataBind();
+        }
+        //charge article selected
+        private void chargeArticle(List<Article> articles)
+        {
+            try
+            {
+                article = articles.Find(x => x.Id == int.Parse(Request.QueryString["id"]));
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
+        }
+        private void chargeControlls()
+        {
+            BtnDelete.Visible = true;
+            TxtId.Text = article.Id.ToString();
+            TxtCode.Text = article.Code;
+            TxtName.Text = article.Name;
+            TxtPrice.Text = article.PriceStringFormat;
+            TxtDescription.Text = article.Description;
+            DdlBrand.SelectedValue = article.Brand.Id.ToString();
+            DdlCategory.SelectedValue = article.Category.Id.ToString();
+            chargeImage();
         }
         private void chargeImage()
         {
@@ -70,16 +85,9 @@ namespace EcommerceWebApp
                 ImgArticle.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
             }
         }
-        protected void BtnBack_Click(object sender, EventArgs e)
+        private void saveLocalImg()
         {
-            Response.Redirect("FrmDashBoardWithCards.aspx", false);
-        }
-        private void saveImg()
-        {
-            //prox hacer mas abstracto, en clase helper.
-            if (!string.IsNullOrEmpty(TxtUrl.Text) && TxtUrl.Text.Contains("https"))
-                article.Image = TxtUrl.Text;
-            else if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg")))
+            if (File.Exists(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg")))
             {
                 File.Delete(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
                 InputFile.PostedFile.SaveAs(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
@@ -101,22 +109,48 @@ namespace EcommerceWebApp
 
             else
                 articleBusiness.Insert(article);
-            Response.Redirect("FrmDashBoardWithCards.aspx", false);
         }
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            article = article == null? new Article() : article;
+            article = article == null ? new Article() : article;
 
             article.Code = TxtCode.Text;
-            article.Name= TxtName.Text;
-            article.Description= TxtDescription.Text;
+            article.Name = TxtName.Text;
+            article.Description = TxtDescription.Text;
             article.Price = decimal.Parse(TxtPrice.Text);
             article.Brand = new Brand();
             article.Brand.Id = int.Parse(DdlBrand.SelectedValue);
             article.Category = new Category();
             article.Category.Id = int.Parse(DdlCategory.SelectedValue);
-            saveImg();
+            if (!String.IsNullOrEmpty(TxtUrl.Text))
+            {
+                article.Image = TxtUrl.Text;
+                File.Delete(MapPath("~/Images/Articles/Article-" + article.Code + ".jpg"));
+            }
+            else
+                saveLocalImg();
             savesChanges();
+            Response.Redirect("FrmDashBoardWithCards.aspx", false);
+        }
+        //
+        protected void BtnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmDashBoardWithCards.aspx", false);
+        }
+
+        protected void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (BtnConfirmDelete.Visible == false)
+            {
+                LblConfirmDelete.Visible = true;
+                BtnConfirmDelete.Visible = true;
+            }
+        }
+
+        protected void BtnConfirmDelete_Click(object sender, EventArgs e)
+        {
+            articleBusiness.Delete(article.Id);
+            Response.Redirect("FrmDashBoardWithCards.aspx", false);
         }
     }
 }

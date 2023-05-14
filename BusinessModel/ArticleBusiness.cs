@@ -91,7 +91,7 @@ namespace BusinessModel
         {
             try
             {
-                data.Query("delete ARTICULOS where Id = Id");
+                data.Query("delete ARTICULOS where Id = @Id");
                 data.Parameters("@Id", Id);
                 data.Execute();
             }

@@ -17,7 +17,6 @@ namespace EcommerceWebApp
             favoriteBusiness = new FavoriteBusiness();
             articleBusiness = new ArticleBusiness();
         }
-        //<script> window.open('" + pageurl + "','_blank'); </script>
         private List<Article> articles= new List<Article>();
         private FavoriteBusiness favoriteBusiness;
         private ArticleBusiness articleBusiness;
@@ -26,15 +25,18 @@ namespace EcommerceWebApp
         {
             if(!IsPostBack)
             {
-                user = (User)Session["activeUser"];
+                user = Session["activeUser"] != null? (User)Session["activeUser"] : null;
                 ListingArticleFavorites();
                 chargeRptrFavorites();
             }
         }
         public void chargeRptrFavorites()
         {
-            RptrFavorites.DataSource = articles;
-            RptrFavorites.DataBind();
+            try
+            {
+                RptrFavorites.DataSource = articles;
+                RptrFavorites.DataBind();
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         public void ListingArticleFavorites()
         {
@@ -45,28 +47,36 @@ namespace EcommerceWebApp
                     if(fav.IdArticle == article.Id) { articles.Add(article); }
                 }
             }
-
         }
 
         protected void BtnDetail_Click(object sender, EventArgs e)
         {
-            string Id = ((Button)sender).CommandArgument;
-            Response.Redirect("FrmDetail.aspx?id=" + Id);
+            try
+            {
+                string Id = ((Button)sender).CommandArgument;
+                Response.Redirect("FrmDetail.aspx?id=" + Id);
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnDeleteFavorite_Click(object sender, EventArgs e)
         {
-            string Id = ((Button)sender).CommandArgument;
-            favoriteBusiness.deleteFavorite(int.Parse(Id), user.idProperty);
-            ListingArticleFavorites();
-            chargeRptrFavorites();
+            try
+            {
+                string Id = ((Button)sender).CommandArgument;
+                favoriteBusiness.deleteFavorite(int.Parse(Id), user.idProperty);
+                ListingArticleFavorites();
+                chargeRptrFavorites();
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnDeleteAll_Click(object sender, EventArgs e)
         {
-            favoriteBusiness.deleteAllFavorites(user.idProperty);
-            RptrFavorites.Visible = false;
-            LblEmpty.Visible = true;
+            try
+            {
+                favoriteBusiness.deleteAllFavorites(user.idProperty);
+                RptrFavorites.Visible = false;
+                LblEmpty.Visible = true;
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
     }
 }

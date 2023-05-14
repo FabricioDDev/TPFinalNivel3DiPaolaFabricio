@@ -20,7 +20,13 @@ namespace EcommerceWebApp
             if (!Security.isUserActive(Session["activeUser"]))
                 Response.Redirect("FrmSignUp.aspx", false);
             if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.Cache.SetNoStore();
                 chargeImgProfile();
+            }
+                
+            
         }
         private void chargeImgProfile()
         {
@@ -28,8 +34,11 @@ namespace EcommerceWebApp
             {
                 User user = (User)Session["activeUser"];
                 ImgProfile.ImageUrl = user.UrlProfileImage != null ? user.UrlProfileImage : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
-            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
+
+
 
         protected void BtnSignOut_Click(object sender, EventArgs e)
         {

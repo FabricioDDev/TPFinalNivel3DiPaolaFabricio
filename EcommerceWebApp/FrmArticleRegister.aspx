@@ -40,6 +40,10 @@
             <input type="file" runat="server" id="InputFile" />
             <asp:Label ID="LblUrl" runat="server" Text="Url"></asp:Label>
             <asp:TextBox ID="TxtUrl" runat="server"></asp:TextBox>
+
+            <asp:Button ID="BtnDelete" Visible="false" OnClick="BtnDelete_Click" runat="server" Text="Delete" />
+            <asp:Label ID="LblConfirmDelete" Visible="false" runat="server" Text="Are you Sure?"></asp:Label>
+            <asp:Button ID="BtnConfirmDelete" Visible="false" OnClick="BtnConfirmDelete_Click" runat="server" Text="Yes" />
         </div>
     </form>
 </body>

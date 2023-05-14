@@ -13,7 +13,7 @@ namespace EcommerceWebApp
     public partial class FrmDetail : System.Web.UI.Page
     {
         public FrmDetail() { }
-        public Article article;
+        public static Article article;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Security.isErrorSessionActive(Session["Error"]))

@@ -17,7 +17,7 @@
     <asp:TextBox ID="TxtLastName" runat="server"></asp:TextBox>
      
     <asp:Label ID="LblImageTitle" runat="server" Text="Image"></asp:Label>
-            <asp:Image ID="ImgArticle" runat="server" />
+            <asp:Image ID="ImgUser" runat="server" />
             <asp:Label ID="LblLocal" runat="server" Text="Local"></asp:Label>
             <input type="file" runat="server" id="InputFile" />
             <asp:Label ID="LblUrl" runat="server" Text="Url"></asp:Label>

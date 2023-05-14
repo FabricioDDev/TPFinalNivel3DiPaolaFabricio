@@ -16,7 +16,7 @@
                 <asp:Button ID="BtnSignOut" OnClick="BtnSignOut_Click" runat="server" Text="SignOut" />
                 <h1>DashBoard</h1>
                 <a href="FrmFavorites.aspx">Favoritos<3</a>
-                <a href="FrmUserConfig.aspx">
+                <a href="FrmUserConfig.aspx" style="height:10px; width:20px;">
                     <asp:Image ID="ImgProfile" runat="server" />
                     <label>Mi Perfil</label>
                 </a>
