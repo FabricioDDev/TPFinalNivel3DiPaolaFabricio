@@ -16,6 +16,8 @@ namespace EcommerceWebApp
         private ArticleBusiness articleBusiness;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Security.isAdmin(Session["activeUser"]))
+                Response.Redirect("FrmError.aspx", false);
             if (!IsPostBack)
             {
                 chargeGv(articleBusiness.Listing());

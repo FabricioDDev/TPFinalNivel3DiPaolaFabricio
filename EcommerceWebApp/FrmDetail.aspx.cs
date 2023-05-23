@@ -22,6 +22,7 @@ namespace EcommerceWebApp
                 Response.Redirect("FrmSignUp.aspx", false);
             if (!IsPostBack)
             {
+                BtnUpdate.Visible = Security.isAdmin(Session["activeUser"])?true:false;
                 ArticleBusiness articleBusiness = new ArticleBusiness();
                 article = articleBusiness.Listing().Find(x => x.Id == int.Parse(Request.QueryString["id"]));
                 chargeControlls();

@@ -21,8 +21,11 @@ namespace EcommerceWebApp
         public static int IdUser;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
+               
+                BtnChangeView.Visible = Security.isAdmin(Session["activeUser"]) ? true : false;
                 chargeCards(articleBusiness.Listing());
                 chargeDdlCamp();
                 chargeDdlCriterion();

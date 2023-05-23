@@ -24,6 +24,8 @@ namespace EcommerceWebApp
                 Response.Redirect("FrmError.aspx", false);
             if (!Security.isUserActive(Session["activeUser"]))
                 Response.Redirect("FrmSignUp.aspx", false);
+            if (!Security.isAdmin(Session["activeUser"]))
+                Response.Redirect("FrmError.aspx", false);
             if (!IsPostBack)
             {
                 chargeDdl();

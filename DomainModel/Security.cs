@@ -20,5 +20,10 @@ namespace DomainModel
             else
                 return false;
         }
+        public static bool isAdmin(object userActive)
+        {
+            User user = (User)userActive;
+            return user.userType== UserType.Admin?true:false;
+        }
     }
 }

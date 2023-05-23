@@ -19,8 +19,11 @@ namespace EcommerceWebApp
                 Response.Redirect("FrmError.aspx", false);
             if (!Security.isUserActive(Session["activeUser"]))
                 Response.Redirect("FrmSignUp.aspx", false);
+            
+               
             if (!IsPostBack)
             {
+                BtnCreate.Visible = Security.isAdmin(Session["activeUser"]) ? true : false; ;
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);
                 Response.Cache.SetNoStore();
                 chargeImgProfile();

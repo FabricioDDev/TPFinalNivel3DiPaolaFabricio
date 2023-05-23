@@ -37,7 +37,7 @@ namespace BusinessModel
         }
         public void insertFavorite(int IdUser, int IdArticle)
         {
-            data.Query("insert into FAVORITOS values (@IdUser, @IdArticulo)");
+            data.Query("insert into FAVORITOS (IdUser, IdArticulo) select  @IdUser, @IdArticulo WHERE NOT EXISTS ( SELECT * FROM FAVORITOS WHERE IdUser = @IdUser AND IdArticulo = @IdArticulo);");
             data.Parameters("@IdUser", IdUser);
             data.Parameters("@IdArticulo", IdArticle);
             data.Execute();
