@@ -14,7 +14,7 @@
             <asp:Button ID="BtnSave" OnClick="BtnSave_Click" runat="server" Text="Save" />
 
             <asp:Label ID="LblId" runat="server" Text="Id"></asp:Label>
-            <asp:TextBox ID="TxtId" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtId" Enabled="false" runat="server"></asp:TextBox>
 
             <asp:Label ID="LblCode" runat="server" Text="Code"></asp:Label>
             <asp:TextBox ID="TxtCode" runat="server"></asp:TextBox>
@@ -24,6 +24,7 @@
 
             <asp:Label ID="LblPrice" runat="server" Text="Price"></asp:Label>
             <asp:TextBox ID="TxtPrice" runat="server"></asp:TextBox>
+            <asp:RegularExpressionValidator ErrorMessage="Only Numbers" ControlToValidate="TxtPrice" ValidationExpression="^[0-9.]+$" runat="server" />
 
             <asp:Label ID="LblDescription" runat="server" Text="Description"></asp:Label>
             <asp:TextBox ID="TxtDescription" runat="server"></asp:TextBox>
