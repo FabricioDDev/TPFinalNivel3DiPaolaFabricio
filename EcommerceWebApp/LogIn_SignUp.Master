@@ -11,6 +11,9 @@
             padding:0px;
             box-sizing:border-box;
         }
+        .txt {
+            font-family: 'Gloock', serif;
+        }
     </style>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">

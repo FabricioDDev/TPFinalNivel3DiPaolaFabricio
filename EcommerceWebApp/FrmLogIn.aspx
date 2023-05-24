@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LogIn_SignUp.Master" AutoEventWireup="true" CodeBehind="FrmLogIn.aspx.cs" Inherits="EcommerceWebApp.FrmLogIn" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .txt {
-            font-family: 'Gloock', serif;
-        }
-    </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
@@ -27,7 +23,7 @@
                     <asp:TextBox ID="TxtPass" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
              </div>
              <div class="mb-3 w-100 d-flex flex-column justify-content-center align-items-center">
-                    <asp:Button ID="BtnGo" CssClass="txt btn btn-success" OnClick="BtnGo_Click" runat="server" Text="Go" />
+                    <asp:Button ID="BtnGo" CssClass="txt btn btn-success btn-lg w-100" OnClick="BtnGo_Click" runat="server" Text="Go" />
                     <asp:LinkButton ID="LktbtnSignUp" CssClass="txt form-label" OnClick="LktbtnSignUp_Click" runat="server" Text="SignUp"></asp:LinkButton>
              </div>
         </div>
