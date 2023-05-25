@@ -4,23 +4,42 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        .imgProfile{
+            height:30px;
+            width:30px;
+            border-radius: 30px;
+        }
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <!-- nav: btnLogOut titulo btnmiperfil-->
-                <asp:Button ID="BtnSignOut" OnClick="BtnSignOut_Click" runat="server" Text="SignOut" />
-                <h1>DashBoard</h1>
-                <a href="FrmFavorites.aspx">Favoritos<3</a>
-                <a href="FrmUserConfig.aspx" style="height:10px; width:20px;">
-                    <asp:Image ID="ImgProfile" runat="server" />
-                    <label>Mi Perfil</label>
-                </a>
-            <asp:Button ID="BtnCreate" OnClick="BtnCreate_Click" runat="server" Text="Create" />
+<body class="d-flex justify-content-center align-items-center" style="height:100vh; width:100%;">
+    <form id="form1" runat="server" class="d-flex justify-content-center align-items-center  h-100 w-100">
+        <div class="container d-flex justify-content-center align-items-center flex-column h-100 w-100">
+            <div class="row d-flex justify-content-center align-items-center w-100">
+                <div class="col-auto">
+                      <!-- nav: btnLogOut titulo btnmiperfil-->
+                    <asp:Button ID="BtnSignOut" CssClass="btn btn-primary" OnClick="BtnSignOut_Click" runat="server" Text="SignOut" />
+                </div>
+                <div class="col-auto">
+                    <h1>DashBoard</h1>
+                </div>
+                <div class="col-auto">
+                    <a href="FrmFavorites.aspx" class="btn btn-success">Favoritos<3</a>
+                </div>
+                <div class="col-auto">
+                    <a href="FrmUserConfig.aspx" class="btn btn-primary">
+                        <asp:Image ID="ImgProfile" CssClass="imgProfile" runat="server" />
+                        <label>Mi Perfil</label>
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <asp:Button ID="BtnCreate" CssClass="btn btn-success" OnClick="BtnCreate_Click" runat="server" Text="Create" />
+                </div>
+            </div>
             
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             <!--main: catalogo v1 filtros tarjetas-->

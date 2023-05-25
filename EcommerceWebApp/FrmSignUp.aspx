@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
+    <div class="row d-flex justify-content-center align-items-center w-100 h-100">
         <div class="col-sm-12 col-md-6 col-lg-6">
             <asp:Label ID="LblWarning" runat="server" Text="" Visible="false"></asp:Label>
         </div>
