@@ -5,41 +5,95 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style>
-        .imgProfile{
-            height:30px;
-            width:30px;
-            border-radius: 30px;
+        *{
+            padding:0px;
+            margin: 0px;
+            box-sizing:border-box;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-flow:column;
+            justify-content: left;
+            align-items:center;
+        }
+        .nav{
+            display:flex;
+            flex-flow: row wrap;
+            justify-content:space-between;
+            align-items:center;
+            width:100%;
+            height:6vh;
+            position:fixed;
+            top:1px;
+            left:0px;
+            z-index:100;
+            background-color:#0070f5;
+        }
+        .button{
+            padding:5px;
+            background-color:transparent;
+            border:none;
+            font-size:20px;
+            color:white;
+            text-decoration:none;
+        }
+        .txt{
+            color:white;
+        }
+        .input{
+            border:none;
+            margin:3px;
+        }
+        @media screen and (max-width:240px;) {
+            .catalog-container{
+                flex-flow:column wrap;
+            }
+        }
+        @media screen and (min-width: 240px){
+            .catalog-container{
+                flex-flow:row wrap;
+            }
+        }
+        @media screen and (min-width:620px){
+            .nav{
+                height:8vh;
+            }
+            .sub_bar{
+                height:8vh;
+                top:8vh;
+            }
+        }
+        @media screen and (min-width:1000px){
+            .nav{
+                height:10vh;
+            }
+            .sub_bar{
+                top:10vh;
+            }
+
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body class="d-flex justify-content-center align-items-center" style="height:100vh; width:100%;">
-    <form id="form1" runat="server" class="d-flex justify-content-center align-items-center  h-100 w-100">
-        <div class="container d-flex justify-content-center align-items-center flex-column h-100 w-100">
-            <div class="row d-flex justify-content-center align-items-center w-100">
-                <div class="col-auto">
-                      <!-- nav: btnLogOut titulo btnmiperfil-->
-                    <asp:Button ID="BtnSignOut" CssClass="btn btn-primary" OnClick="BtnSignOut_Click" runat="server" Text="SignOut" />
-                </div>
-                <div class="col-auto">
-                    <h1>DashBoard</h1>
-                </div>
-                <div class="col-auto">
-                    <a href="FrmFavorites.aspx" class="btn btn-success">Favoritos<3</a>
-                </div>
-                <div class="col-auto">
-                    <a href="FrmUserConfig.aspx" class="btn btn-primary">
-                        <asp:Image ID="ImgProfile" CssClass="imgProfile" runat="server" />
-                        <label>Mi Perfil</label>
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <asp:Button ID="BtnCreate" CssClass="btn btn-success" OnClick="BtnCreate_Click" runat="server" Text="Create" />
-                </div>
+<body class="container">
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="nav">
+                <asp:Button ID="BtnSignOut" CssClass="button" OnClick="BtnSignOut_Click" runat="server" Text="SignOut" />
+                <h1 style="font-size:3.5em; color:white;">DashBoard</h1>
+                <a href="FrmFavorites.aspx" style="display:flex; justify-content:center; align-items:center;" class="button">Favoritos<3</a>
+                <a href="FrmUserConfig.aspx" class="button" style=" display: flex; justify-content:center; align-items:center;">
+                    <asp:Image ID="ImgProfile" style=" height:20px; width:20px; border-radius:20px;" runat="server" />
+                    <label>Mi Perfil</label>
+                </a>
+                <asp:Button ID="BtnCreate" CssClass="button" OnClick="BtnCreate_Click" runat="server" Text="Create" />
             </div>
+            <!-- nav: btnLogOut titulo btnmiperfil-->
+                
             
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             <!--main: catalogo v1 filtros tarjetas-->

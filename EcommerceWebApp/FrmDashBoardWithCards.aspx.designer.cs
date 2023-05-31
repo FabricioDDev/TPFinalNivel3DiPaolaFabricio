@@ -15,6 +15,15 @@ namespace EcommerceWebApp
     {
 
         /// <summary>
+        /// Control BtnChangeView.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnChangeView;
+
+        /// <summary>
         /// Control LblSearch.
         /// </summary>
         /// <remarks>
@@ -85,15 +94,6 @@ namespace EcommerceWebApp
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnApplyFilter;
-
-        /// <summary>
-        /// Control BtnChangeView.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnChangeView;
 
         /// <summary>
         /// Control RptrCards.

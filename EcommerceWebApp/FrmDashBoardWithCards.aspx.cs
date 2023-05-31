@@ -133,9 +133,9 @@ namespace EcommerceWebApp
             string Criterion = DdlCriterion.SelectedValue;
 
             if(Criterion == "- to +")
-                articles = articleBusiness.Listing().OrderBy(x => x.Price).Reverse().ToList();
-            else if(Criterion == "+ to -")
                 articles = articleBusiness.Listing().OrderBy(x => x.Price).ToList();
+            else if(Criterion == "+ to -")
+                articles = articleBusiness.Listing().OrderBy(x => x.Price).Reverse().ToList();
             else
                 articles = articleBusiness.listFiltered(Camp, Criterion);
 
