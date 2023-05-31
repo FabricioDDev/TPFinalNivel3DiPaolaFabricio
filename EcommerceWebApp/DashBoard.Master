@@ -50,9 +50,15 @@
             .catalog-container{
                 flex-flow:column wrap;
             }
+            .tbContainer{
+                flex-flow:column wrap;
+            }
         }
         @media screen and (min-width: 240px){
             .catalog-container{
+                flex-flow:row wrap;
+            }
+            .tbContainer{
                 flex-flow:row wrap;
             }
         }
