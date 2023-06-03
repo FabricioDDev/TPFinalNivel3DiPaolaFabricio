@@ -44,6 +44,7 @@
             object-fit: contain;
         }
         .btnCard{
+            margin-bottom:2px;
             width:50%;
             height:5%;
             border:none;
