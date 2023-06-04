@@ -56,6 +56,12 @@
         .txt{
             font-size:1.5em;
         }
+        .btn{
+            text-decoration:none;
+            border:none;
+            background-color:transparent;
+            font-size:1.5em;
+        }
         .img{
             height:70%;
             width:90%;
@@ -75,8 +81,8 @@
     <form id="form1" runat="server" style="background-color:#0070f5;">
         <div class="container">
             <div class="navbar">
-                <asp:Button ID="BtnBack" CssClass="txt" OnClick="BtnBack_Click" runat="server" Text="Back" />
-                <asp:Button ID="BtnUpdate" CssClass="txt" OnClick="BtnUpdate_Click" runat="server" Text="Update" />
+                <asp:Button ID="BtnBack" CssClass=" btn" OnClick="BtnBack_Click" runat="server" Text="Back" />
+                <asp:Button ID="BtnUpdate" CssClass=" btn" OnClick="BtnUpdate_Click" runat="server" Text="Update" />
             </div>
             
             <div class="section">

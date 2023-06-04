@@ -15,15 +15,6 @@ namespace EcommerceWebApp
     {
 
         /// <summary>
-        /// Control ImgProfile.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgProfile;
-
-        /// <summary>
         /// Control LblEmail.
         /// </summary>
         /// <remarks>
@@ -96,6 +87,24 @@ namespace EcommerceWebApp
         protected global::System.Web.UI.WebControls.TextBox TxtLastName;
 
         /// <summary>
+        /// Control BtnSave.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSave;
+
+        /// <summary>
+        /// Control ImgProfile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgProfile;
+
+        /// <summary>
         /// Control LblImageTitle.
         /// </summary>
         /// <remarks>
@@ -103,15 +112,6 @@ namespace EcommerceWebApp
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblImageTitle;
-
-        /// <summary>
-        /// Control ImgUser.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgUser;
 
         /// <summary>
         /// Control LblLocal.
@@ -148,14 +148,5 @@ namespace EcommerceWebApp
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtUrl;
-
-        /// <summary>
-        /// Control BtnSave.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSave;
     }
 }
