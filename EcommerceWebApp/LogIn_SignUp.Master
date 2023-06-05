@@ -10,6 +10,7 @@
             margin:0px;
             padding:0px;
             box-sizing:border-box;
+            background-color:#52b69a;
         }
     </style>
     <title></title>

@@ -10,6 +10,7 @@
         body{
             width:100%;
             height:100vh;
+            background-color:#52b69a;
         }
         .container{
             width:100%;
@@ -17,7 +18,7 @@
             display:flex;
             flex-flow:column nowrap;
             justify-content:center;
-            align-content:center;
+            align-items:center;
         }
         .nav{
             width:100%;
@@ -26,12 +27,23 @@
             flex-flow:row nowrap;
             justify-content:space-around;
             align-items:center;
+             background-color:#52b69a;
         }
         .sub-bar{
             display:flex;
             flex-flow:row nowrap;
             align-self:center;
+            padding:0.5%;
+            border-radius:5%;
+            background-color:#d9ed92;
         }
+        .btn{
+            border:none;
+            padding:0.5%;
+            border-radius:5%;
+            background-color:#d9ed92;
+        }
+        
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -40,10 +52,10 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="nav">
-                <asp:Button ID="BtnDashBoard" OnClick="BtnDashBoard_Click" runat="server" Text="Back to DashBoard" />
+                <asp:Button ID="BtnDashBoard"  CssClass="btn" OnClick="BtnDashBoard_Click" runat="server" Text="Back to DashBoard" />
                 <div class="sub-bar">
-                    <asp:Button ID="BtnFavorites" OnClick="BtnFavorites_Click" runat="server" Text="Favorites" />
-                    <asp:Button ID="BtnConfig" OnClick="BtnConfig_Click" runat="server" Text="Config" />
+                    <asp:Button ID="BtnFavorites" CssClass="btn" OnClick="BtnFavorites_Click" runat="server" Text="Favorites |" />
+                    <asp:Button ID="BtnConfig" CssClass="btn" OnClick="BtnConfig_Click" runat="server" Text="Config" />
                 </div>
             </div>
             

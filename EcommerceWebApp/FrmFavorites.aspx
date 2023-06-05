@@ -21,6 +21,7 @@
             align-items:center;
             width:100%;
             height:100%;
+            background-color:#cce3de;
         }
         
         .img-container{
@@ -31,7 +32,10 @@
             flex-flow:column;
             justify-content:center;
             align-items:center;
-            border: solid 1px black;
+            border: solid 2px #cce3de;
+            border-radius: 3%;
+            z-index:50;
+            background-color:white;
         }
         .card-body{
             height:50%;
@@ -53,14 +57,18 @@
             border:none;
             background-color:lawngreen;
         }
+        .empty{
+            font-size:3em;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="favorite">
          <div class="sub">
-         <h1>Favorites!<3</h1>
-         <asp:Button ID="BtnDeleteAll" OnClick="BtnDeleteAll_Click" runat="server" Text="Delete All Favorites" />
+         <h1 style="color:white;">Favorites!<3</h1>
+         <asp:Button ID="BtnDeleteAll" CssClass="btn" OnClick="BtnDeleteAll_Click" runat="server" Text="Delete All Favorites" />
          </div>
+         
          <div class="catalog-container">
              <asp:Repeater ID="RptrFavorites" runat="server">
             <ItemTemplate>
@@ -75,9 +83,10 @@
                             </div>
             </ItemTemplate>
             </asp:Repeater>
+            
          </div>
     
-        <asp:Label ID="LblEmpty" runat="server" Text="Empty" Visible="false"></asp:Label>
+        <asp:Label ID="LblEmpty" CssClass="empty" runat="server" Text="Empty" Visible="false"></asp:Label>
     </div>
     
 </asp:Content>
