@@ -17,6 +17,7 @@
             height:100vh;
             display:flex;
             flex-flow:column nowrap;
+             
         }
         .container{
             width:100%;
@@ -25,6 +26,7 @@
             flex-flow:column nowrap;
             justify-content: flex-start;
             align-items:center;
+            background-color:#99d98c;
         }
         .navbar{
             width:100%;
@@ -33,6 +35,7 @@
             flex-flow:row wrap;
             justify-content:space-around;
             align-items:center;
+            background-color:#99d98c;
         }
         .section{
             width:90%;
@@ -41,7 +44,7 @@
             flex-flow: row wrap;
             justify-content:center;
             align-items:center;
-            background: red;
+            background-color:#d9ed92;
         }
         .section div{
             display:flex;
@@ -66,7 +69,9 @@
             width: 100%;
             object-fit: contain;
         }
-
+        .warning{
+            color:red;
+        }
         
     </style>
 </head>
@@ -76,9 +81,12 @@
             <div class="navbar">
                 <asp:Button ID="BtnBack" CssClass="btn" OnClick="BtnBack_Click" runat="server" Text="Back" />
                 <asp:Button ID="BtnSave" CssClass="btn" OnClick="BtnSave_Click" runat="server" Text="Save" />
-                <asp:Button ID="BtnDelete" CssClass="btn" Visible="false" OnClick="BtnDelete_Click" runat="server" Text="Delete" />
-                <asp:Label ID="LblConfirmDelete" CssClass="btn" Visible="false" runat="server" Text="Are you Sure?"></asp:Label>
-                <asp:Button ID="BtnConfirmDelete" CssClass="btn" Visible="false" OnClick="BtnConfirmDelete_Click" runat="server" Text="Yes" />
+                
+                <div style="display:flex; border:solid 1px red; border-radius:5px; justify-content:space-around; width:30%;">
+                    <asp:Button ID="BtnDelete" CssClass="btn" Visible="false" OnClick="BtnDelete_Click" runat="server" Text="Delete" />
+                    <asp:Label ID="LblConfirmDelete" CssClass="btn" Visible="false" runat="server" Text="Are you Sure?"></asp:Label>
+                    <asp:Button ID="BtnConfirmDelete" CssClass="btn warning" Visible="false" OnClick="BtnConfirmDelete_Click" runat="server" Text="Yes" />
+                </div>
             </div>
             <div class="section">
                 <div>
