@@ -14,7 +14,7 @@
             top:8vh;
             left:0px;
             z-index:90;
-            background-color:#94bbe9;
+            background-color:#cce3de;
         }
         .tbContainer{
             display:flex;
@@ -25,6 +25,7 @@
             position:absolute;
             top:12vh;
             left:0px;
+            background-color:#d9ed92;
         }
         @media screen and (min-width:1000px){
             .sub_bar{

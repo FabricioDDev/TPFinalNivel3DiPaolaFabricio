@@ -38,11 +38,11 @@
             background-color:transparent;
             border:none;
             font-size:20px;
-            color:white;
+            color:black;
             text-decoration:none;
         }
         .txt{
-            color:white;
+            color:#353535;
             font-family: 'Geologica', sans-serif;
             font-family: 'Gloock', serif;
         }
@@ -97,7 +97,7 @@
         <div class="container">
             <div class="nav">
                 <asp:Button ID="BtnSignOut" CssClass="button txt" OnClick="BtnSignOut_Click" runat="server" Text="SignOut" />
-                <h1 style="font-size:2.5em; color:white;" class="txt">DashBoard</h1>
+                <h1 style="font-size:2.5em;" class="txt">DashBoard</h1>
                 <a href="FrmFavorites.aspx" style="display:flex; justify-content:center; align-items:center;" class="button txt">Favoritos<3</a>
                 <a href="FrmUserConfig.aspx" class="button txt" style=" display: flex; justify-content:center; align-items:center;">
                     <asp:Image ID="ImgProfile" style=" height:30px; width:30px; border-radius:20px;    object-fit: contain;" runat="server" />
