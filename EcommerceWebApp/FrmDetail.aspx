@@ -15,7 +15,7 @@
         body{
             width:100%;
             height:100vh;
-            background-color:#0070f5;
+            background-color:#99d98c;
         }
         .container{
             width:100%;
@@ -24,7 +24,7 @@
             flex-flow:column nowrap;
             justify-content:center;
             align-items:center;
-            background-color:#0070f5;
+           background-color:#99d98c;
         }
         .navbar{
             width:100%;
@@ -33,7 +33,7 @@
             flex-flow:row nowrap;
             justify-content:space-between;
             align-items:center;
-            background-color:#0070f5;
+            background-color:#52b69a;
         }
         .section{
             width:100%;
@@ -42,7 +42,7 @@
             flex-flow:column nowrap;
             justify-content:center;
             align-items:center;
-            background-color:#94bbe9;
+            background-color:#d9ed92;
         }
         .specifications{
             width:100%;
@@ -51,7 +51,7 @@
             flex-flow:column nowrap;
             justify-content:flex-start;
             align-items:center;
-            background-color:#94bbe9;
+            background-color:#d9ed92;
         }
         .txt{
             font-size:1.5em;
@@ -74,20 +74,20 @@
             font-size:2em;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form id="form1" runat="server" style="background-color:#0070f5;">
+    <form id="form1" runat="server" style="background-color:#99d98c;">
         <div class="container">
             <div class="navbar">
-                <asp:Button ID="BtnBack" CssClass=" btn" OnClick="BtnBack_Click" runat="server" Text="Back" />
-                <asp:Button ID="BtnUpdate" CssClass=" btn" OnClick="BtnUpdate_Click" runat="server" Text="Update" />
+                <asp:Button ID="BtnBack" CssClass = " txt btn" OnClick="BtnBack_Click" runat="server" Text="Back" />
+                <asp:Button ID="BtnUpdate" CssClass = " txt btn" OnClick="BtnUpdate_Click" runat="server" Text="Update" />
             </div>
             
             <div class="section">
                 <asp:Image ID="ImgArticle" CssClass="img" runat="server" />
-                <asp:Label ID="FullName" CssClass="title" runat="server" Text=""></asp:Label>
+                <asp:Label ID="FullName" CssClass="title txt" runat="server" Text=""></asp:Label>
                 <asp:Label ID="LblPrice1" CssClass="txt" runat="server" Text=""></asp:Label>
             </div>
            <div class="specifications">
