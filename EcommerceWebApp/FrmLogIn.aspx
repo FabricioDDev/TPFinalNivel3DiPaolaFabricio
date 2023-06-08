@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="col-12">
              <div class="mb-3">
                 <asp:Label ID="LblWarning" CssClass="txt form-label alert alert-danger" Visible="false" runat="server" Text=""></asp:Label>
              </div>

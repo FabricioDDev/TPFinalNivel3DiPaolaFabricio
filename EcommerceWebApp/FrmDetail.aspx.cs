@@ -24,7 +24,7 @@ namespace EcommerceWebApp
             {
                 BtnUpdate.Visible = Security.isAdmin(Session["activeUser"])?true:false;
                 ArticleBusiness articleBusiness = new ArticleBusiness();
-                article = articleBusiness.Listing().Find(x => x.Id == int.Parse(Request.QueryString["id"]));
+                article = Request.QueryString["id"] != null?articleBusiness.Listing().Find(x => x.Id == int.Parse(Request.QueryString["id"])) : null;
                 chargeControlls();
             }
         }
@@ -46,10 +46,13 @@ namespace EcommerceWebApp
             List<Article> articleList = new List<Article> { article};
             try
             {
-                FullName.Text = article.Brand + " " + article.Name;
-                LblPrice1.Text = "$" + article.PriceStringFormat;
-                chargeImage();
-                chargeGv(articleList);
+                if(article != null)
+                {
+                    FullName.Text = article.Brand + " " + article.Name;
+                    LblPrice1.Text = "$" + article.PriceStringFormat;
+                    chargeImage();
+                    chargeGv(articleList);
+                }
             }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         private void chargeGv(List<Article>list)

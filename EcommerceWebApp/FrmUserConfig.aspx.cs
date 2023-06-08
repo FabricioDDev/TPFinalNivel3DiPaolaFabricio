@@ -14,14 +14,16 @@ namespace EcommerceWebApp
     {
         private static User user;
         protected void Page_Load(object sender, EventArgs e)
-        {  
-            if (!IsPostBack)
+        {
+            if (!IsPostBack && Session["activeUser"] != null)
             {
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);
                 Response.Cache.SetNoStore();
-                user = Session["activeUser"] != null ? (User)Session["activeUser"] : null;
+                user = (User)Session["activeUser"];
                 chargeControlls();
             }
+            else
+                Response.Redirect("FrmSignUp.aspx", false);
         }
         private void chargeControlls()
         {

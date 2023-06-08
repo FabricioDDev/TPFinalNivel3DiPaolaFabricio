@@ -23,9 +23,9 @@ namespace EcommerceWebApp
         private static User user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if(!IsPostBack && Session["activeUser"] != null)
             {
-                user = Session["activeUser"] != null? (User)Session["activeUser"] : null;
+                user = (User)Session["activeUser"];
                 ListingArticleFavorites();
                 chargeRptrFavorites();
             }

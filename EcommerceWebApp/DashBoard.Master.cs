@@ -36,7 +36,7 @@ namespace EcommerceWebApp
             try
             {
                 User user = (User)Session["activeUser"];
-                ImgProfile.ImageUrl = user.UrlProfileImage != null ? user.UrlProfileImage : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
+                ImgProfile.ImageUrl = user != null && user.UrlProfileImage != null ? user.UrlProfileImage : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png";
             }
             catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
