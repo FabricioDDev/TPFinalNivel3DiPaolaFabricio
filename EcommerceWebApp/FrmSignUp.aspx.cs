@@ -18,7 +18,7 @@ namespace EcommerceWebApp
             if (Security.isErrorSessionActive(Session["Error"]))
                 Response.Redirect("FrmError");
 
-            if (!IsPostBack)
+            if(!IsPostBack)
                 chargeControlls();
         }
         private void chargeControlls()
@@ -31,6 +31,7 @@ namespace EcommerceWebApp
 
         protected void BtnGo_Click(object sender, EventArgs e)
         {
+            
             UserBusiness userBusiness = new UserBusiness();
             try
             {
@@ -54,27 +55,35 @@ namespace EcommerceWebApp
         private bool validateControlls()
         {
             UserBusiness userBusiness = new UserBusiness();
+
+            if (string.IsNullOrEmpty(TxtEmail.Text))
+            {
+                LblWarning.Visible = true;
+                LblWarning.Text = "Oh, The Email is required!";
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(TxtPass.Text))
+            {
+                LblWarning.Visible = true;
+                LblWarning.Text = "Oh, The Password is required!";
+                return false;
+            }
+            if (userBusiness.existUser(TxtEmail.Text))
+            {
+                LblWarning.Visible = true;
+                LblWarning.Text = "There is already an account associated with that email. Try again...";
+                return false;
+            }
             try
             {
                 foreach (TextBox txt in inputs)
                 {
-                    if ((txt.ID == "TxtEmail" || txt.ID == "TxtPass") && string.IsNullOrEmpty(txt.Text))
-                    {
-                        LblWarning.Visible = true; 
-                        LblWarning.Text = "Oh, The Email and Password are required!";
-                        return false;
-                    }
-
-                    if (!(string.IsNullOrEmpty(txt.Text)) && !Helper.validatingTxtLong(txt.Text, 5, 30))
+                    String textinput = txt.Text;
+                    if (txt != null && string.IsNullOrEmpty(textinput) && !Helper.validatingTxtLong(textinput, 5, 30))
                     {
                         LblWarning.Visible = true;
                         LblWarning.Text = "Oh, the camp should have between 5 and 30 characters. Try again!...";
-                        return false;
-                    }
-                    if ((txt.ID == "TxtEmail") && userBusiness.existUser(TxtEmail.Text))
-                    {
-                        LblWarning.Visible = true;
-                        LblWarning.Text = "There is already an account associated with that email. Try again...";
                         return false;
                     }
                 }
