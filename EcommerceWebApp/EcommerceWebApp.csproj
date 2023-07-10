@@ -73,7 +73,7 @@
     <Content Include="FrmDetail.aspx" />
     <Content Include="FrmError.aspx" />
     <Content Include="FrmFavorites.aspx" />
-    <Content Include="FrmLogIn.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="FrmSignUp.aspx" />
     <Content Include="FrmUserConfig.aspx" />
     <Content Include="Web.config" />
@@ -128,12 +128,12 @@
     <Compile Include="FrmFavorites.aspx.designer.cs">
       <DependentUpon>FrmFavorites.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogIn.aspx.cs">
-      <DependentUpon>FrmLogIn.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmLogIn.aspx.designer.cs">
-      <DependentUpon>FrmLogIn.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmSignUp.aspx.cs">
       <DependentUpon>FrmSignUp.aspx</DependentUpon>

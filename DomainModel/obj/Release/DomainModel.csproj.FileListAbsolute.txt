@@ -1,0 +1,6 @@
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\DomainModel\bin\Release\DomainModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\DomainModel\bin\Release\DomainModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\DomainModel\obj\Release\DomainModel.csproj.AssemblyReference.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\DomainModel\obj\Release\DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\DomainModel\obj\Release\DomainModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\DomainModel\obj\Release\DomainModel.pdb

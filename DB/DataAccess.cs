@@ -4,13 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
+using System.Net.Sockets;
 
 namespace DB
 {
     public class DataAccess
     {
-        //Builder
-        public DataAccess() { connection = new SqlConnection("server=DESKTOP-J1JBL3C\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true"); command = new SqlCommand(); }
+        //Builder<add key="connectionString" value="server= DESKTOP-J1JBL3C\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security = true"/>
+
+        public DataAccess() {
+            connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
+            command = new SqlCommand();
+        }
         //Attributes
         private SqlConnection connection;
         private SqlCommand command;

@@ -1,0 +1,11 @@
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\bin\Release\BusinessModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\bin\Release\BusinessModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\bin\Release\DB.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\bin\Release\DomainModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\bin\Release\DB.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\bin\Release\DomainModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\obj\Release\BusinessModel.csproj.AssemblyReference.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\obj\Release\BusinessModel.csproj.CoreCompileInputs.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\obj\Release\BusinessModel.csproj.CopyComplete
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\obj\Release\BusinessModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\EcommerceSolution\BusinessModel\obj\Release\BusinessModel.pdb
